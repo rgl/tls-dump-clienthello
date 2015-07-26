@@ -104,6 +104,18 @@ func (hs *serverHandshakeState) readClientHello() (isResume bool, err error) {
 		c.sendAlert(alertUnexpectedMessage)
 		return false, unexpectedMessageError(hs.clientHello, msg)
 	}
+
+	if config.OnClientHello != nil {
+		config.OnClientHello(&ClientHello{
+			Vers:            hs.clientHello.vers,
+			CipherSuites:    hs.clientHello.cipherSuites,
+			ServerName:      hs.clientHello.serverName,
+			SupportedCurves: hs.clientHello.supportedCurves,
+			SupportedPoints: hs.clientHello.supportedPoints,
+			AlpnProtocols:   hs.clientHello.alpnProtocols,
+		})
+	}
+
 	c.vers, ok = config.mutualVersion(hs.clientHello.vers)
 	if !ok {
 		c.sendAlert(alertProtocolVersion)

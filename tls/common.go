@@ -236,6 +236,15 @@ type ClientHelloInfo struct {
 	SupportedPoints []uint8
 }
 
+type ClientHello struct {
+	Vers            uint16
+	CipherSuites    []uint16
+	ServerName      string
+	SupportedCurves []CurveID
+	SupportedPoints []uint8
+	AlpnProtocols   []string
+}
+
 // A Config structure is used to configure a TLS client or server.
 // After one has been passed to a TLS function it must not be
 // modified. A Config may be reused; the tls package will also not
@@ -250,6 +259,8 @@ type Config struct {
 	// Time returns the current time as the number of seconds since the epoch.
 	// If Time is nil, TLS uses time.Now.
 	Time func() time.Time
+
+	OnClientHello func(clientHello *ClientHello)
 
 	// Certificates contains one or more certificate chains
 	// to present to the other side of the connection.
