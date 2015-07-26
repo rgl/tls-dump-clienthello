@@ -286,6 +286,11 @@ func main() {
 
 	log.Printf("server address: %v", l.Addr())
 
+	go func() {
+		os.Stdin.Read(make([]byte, 1))
+		os.Exit(0)
+	}()
+
 	for {
 		c, err := l.Accept()
 
