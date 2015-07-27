@@ -16,7 +16,7 @@ Outputs:
 
 ```
 client version: TLSv1.2
-client SNI: localhost
+client SNI: example.com
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_RC4_128_SHA (0xc011)
