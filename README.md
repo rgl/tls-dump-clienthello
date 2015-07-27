@@ -4,6 +4,38 @@ this uses a modified version of the Go [crypto/tls package](https://github.com/g
 
 # Example outputs
 
+## Go 1.4.2
+
+With:
+
+```go
+http.Get("https://example.com:8888")
+```
+
+Outputs:
+
+```
+client version: TLSv1.2
+client SNI: localhost
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_RC4_128_SHA (0xc011)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_RC4_128_SHA (0xc007)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_RSA_WITH_RC4_128_SHA (0x0005)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA (0xc012)
+client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client curve: secp521r1 (25)
+client point: uncompressed (0)
+```
+
 ## .NET 4.5.2 (default settings)
 
 With:
