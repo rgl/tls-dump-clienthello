@@ -2,6 +2,24 @@ this dumps the [TLS ClientHello message](https://tools.ietf.org/html/rfc5246#sec
 
 this uses a modified version of the Go [crypto/tls package](https://github.com/golang/go/tree/master/src/crypto/tls).
 
+
+# Build
+
+Setup the Go workspace:
+
+	mkdir -p tls-dump-clienthello/src/github.com/rgl/tls-dump-clienthello
+	cd tls-dump-clienthello
+	git clone https://github.com/rgl/tls-dump-clienthello src/github.com/rgl/tls-dump-clienthello
+	export GOPATH=$PWD
+	export PATH=$PWD/bin:$PATH
+	hash -r # reset bash path
+
+Build:
+
+	cd src/github.com/rgl/tls-dump-clienthello
+	make
+
+
 # Example outputs
 
 ## Go 1.4.2
