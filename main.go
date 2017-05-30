@@ -8,13 +8,14 @@ import (
 	"errors"
 	"flag"
 	"fmt"
-	"github.com/rgl/tls-dump-clienthello/tls"
 	"io"
 	"log"
 	"os"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/rgl/tls-dump-clienthello/tls"
 )
 
 var protocolVersions = map[uint16]string{
@@ -226,12 +227,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("ERROR failed to load cipher suites from tls-parameters-4.csv: %v", err)
 	}
-
-	// add missing cipher suites. these are the prefered suites of chrome 44.
-	// See http://tools.ietf.org/html/draft-agl-tls-chacha20poly1305-04
-	knownCipherSuites[0xcc13] = "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"
-	knownCipherSuites[0xcc14] = "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256"
-	knownCipherSuites[0xcc15] = "TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256"
 
 	knownCurves, err := loadCurves("tls-parameters-8.csv")
 
