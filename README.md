@@ -264,6 +264,8 @@ client curve: secp384r1 (24)
 client point: uncompressed (0)
 ```
 
+**NB** The unknown cipher suite and curve that you see above is actually a feature, the [GREASE for TLS](https://www.chromestatus.com/feature/6475903378915328) feature.
+
 ## curl 7.52.1 (Ubuntu)
 
 ```
