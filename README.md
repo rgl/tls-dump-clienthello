@@ -1,7 +1,5 @@
 this dumps the [TLS ClientHello message](https://tools.ietf.org/html/rfc5246#section-7.4.1.2) to stdout. this might be useful when testing your TLS client settings.
 
-this uses a modified version of the Go [crypto/tls package](https://github.com/golang/go/tree/master/src/crypto/tls).
-
 
 # Build
 
@@ -22,7 +20,7 @@ Build:
 
 # Example outputs
 
-## Go 1.4.2
+## Go 1.8.3 (Ubuntu)
 
 With:
 
@@ -34,20 +32,27 @@ Outputs:
 
 ```
 client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client version: SSLv3.0
 client SNI: example.com
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
-client cipher suite: TLS_ECDHE_RSA_WITH_RC4_128_SHA (0xc011)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_RC4_128_SHA (0xc007)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
-client cipher suite: TLS_RSA_WITH_RC4_128_SHA (0x0005)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
 client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
 client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
 client cipher suite: TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA (0xc012)
 client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
+client curve: x25519 (29)
 client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client curve: secp521r1 (25)
@@ -215,6 +220,9 @@ client point: uncompressed (0)
 
 ```
 client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client version: SSLv3.0
 client SNI: example.com
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
@@ -242,8 +250,11 @@ client point: uncompressed (0)
 
 ```
 client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client version: SSLv3.0
 client SNI: example.com
-client cipher suite:  (0x2a2a)
+client cipher suite:  (0x6a6a)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
 client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
@@ -257,7 +268,7 @@ client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
 client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
 client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
 client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
-client curve:  (47802)
+client curve:  (35466)
 client curve: x25519 (29)
 client curve: secp256r1 (23)
 client curve: secp384r1 (24)
@@ -270,6 +281,9 @@ client point: uncompressed (0)
 
 ```
 client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client version: SSLv3.0
 client SNI: example.com
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
@@ -372,6 +386,9 @@ client point: ansiX962_compressed_char2 (2)
 
 ```
 client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client version: SSLv3.0
 client SNI: example.com
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)

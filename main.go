@@ -4,6 +4,7 @@
 package main
 
 import (
+	"crypto/tls"
 	"encoding/csv"
 	"errors"
 	"flag"
@@ -14,8 +15,6 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-
-	"github.com/rgl/tls-dump-clienthello/tls"
 )
 
 var protocolVersions = map[uint16]string{
@@ -248,13 +247,15 @@ func main() {
 
 	tlsConfig := &tls.Config{
 		Certificates: []tls.Certificate{certificate},
-		OnClientHello: func(clientHello *tls.ClientHello) {
-			protocolVersion := protocolVersions[clientHello.Vers]
-			if protocolVersion == "" {
-				protocolVersion = fmt.Sprintf("0x%04x", clientHello.Vers)
+		GetConfigForClient: func(clientHello *tls.ClientHelloInfo) (*tls.Config, error) {
+			for _, versionId := range clientHello.SupportedVersions {
+				protocolVersion := protocolVersions[versionId]
+				if protocolVersion == "" {
+					protocolVersion = fmt.Sprintf("0x%04x", versionId)
+				}
+				log.Printf("client version: %s", protocolVersion)
 			}
 
-			log.Printf("client version: %s", protocolVersion)
 			log.Printf("client SNI: %s", clientHello.ServerName)
 
 			for _, cipherSuiteId := range clientHello.CipherSuites {
@@ -268,6 +269,8 @@ func main() {
 			for _, pointId := range clientHello.SupportedPoints {
 				log.Printf("client point: %s (%d)", knownPoints[pointId], pointId)
 			}
+
+			return nil, nil
 		},
 	}
 
