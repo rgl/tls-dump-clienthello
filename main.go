@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net/http"
 	"os"
 	"regexp"
 	"strconv"
@@ -208,7 +209,7 @@ func loadPoints(fileName string) (map[uint8]string, error) {
 
 // test with:
 //
-//	openssl s_client -connect localhost:8888 -servername example.com
+//	(printf 'GET / HTTP/1.0\n\n'; sleep .1) | openssl s_client -connect localhost:8888 -servername example.com
 func main() {
 	log.SetFlags(0)
 
@@ -239,14 +240,7 @@ func main() {
 		log.Fatalf("ERROR failed to load points from tls-parameters-9.csv: %v", err)
 	}
 
-	certificate, err := tls.LoadX509KeyPair("example.com-crt.pem", "example.com-keypair.pem")
-
-	if err != nil {
-		log.Fatalf("ERROR failed to load keypair: %v", err)
-	}
-
 	tlsConfig := &tls.Config{
-		Certificates: []tls.Certificate{certificate},
 		GetConfigForClient: func(clientHello *tls.ClientHelloInfo) (*tls.Config, error) {
 			for _, versionId := range clientHello.SupportedVersions {
 				protocolVersion := protocolVersions[versionId]
@@ -274,42 +268,11 @@ func main() {
 		},
 	}
 
-	l, err := tls.Listen("tcp", *listenAddress, tlsConfig)
-
-	if err != nil {
-		log.Fatalf("ERROR failed to listen: %v", err)
-	}
-
-	defer l.Close()
-
-	log.Printf("server address: %v", l.Addr())
-
-	go func() {
-		os.Stdin.Read(make([]byte, 1))
-		os.Exit(0)
-	}()
-
-	for {
-		c, err := l.Accept()
-
-		if err != nil {
-			log.Printf("WARN failed to accept: %v", err)
-			continue
-		}
-
-		log.Printf("client address: %v", c.RemoteAddr())
-
-		go func(c *tls.Conn) {
-			defer c.Close()
-
-			err := c.Handshake()
-
-			if err != nil {
-				log.Printf("ERROR failed to TLS Handshake: %v", err)
-				return
-			}
-
-			state := c.ConnectionState()
+	server := &http.Server{
+		Addr:      *listenAddress,
+		TLSConfig: tlsConfig,
+		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			state := r.TLS
 
 			protocolVersion := protocolVersions[state.Version]
 			if protocolVersion == "" {
@@ -324,6 +287,13 @@ func main() {
 			log.Printf("handshake version: %v", protocolVersion)
 			log.Printf("handshake cipher suite: %v", cipherSuite)
 			log.Printf("handshake protocol: %v", state.NegotiatedProtocol)
-		}(c.(*tls.Conn))
+
+			w.WriteHeader(http.StatusNoContent)
+		}),
+	}
+
+	err = server.ListenAndServeTLS("example.com-crt.pem", "example.com-keypair.pem")
+	if err != nil {
+		log.Fatal(err)
 	}
 }
