@@ -16,6 +16,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var protocolVersions = map[uint16]string{
@@ -242,6 +243,9 @@ func main() {
 
 	tlsConfig := &tls.Config{
 		GetConfigForClient: func(clientHello *tls.ClientHelloInfo) (*tls.Config, error) {
+			log.Printf("----")
+			log.Printf("client address: %s", clientHello.Conn.RemoteAddr())
+
 			for _, versionId := range clientHello.SupportedVersions {
 				protocolVersion := protocolVersions[versionId]
 				if protocolVersion == "" {
@@ -287,8 +291,18 @@ func main() {
 			log.Printf("handshake version: %v", protocolVersion)
 			log.Printf("handshake cipher suite: %v", cipherSuite)
 			log.Printf("handshake protocol: %v", state.NegotiatedProtocol)
+			log.Printf("http: %s %s %s", r.Method, r.URL.RequestURI(), r.Proto)
+			if r.Host != "" {
+				log.Printf("http header: Host: %s", r.Host)
+			}
+			for name, headers := range r.Header {
+				for _, value := range headers {
+					log.Printf("http header: %s: %s", name, value)
+				}
+			}
 
-			w.WriteHeader(http.StatusNoContent)
+			w.WriteHeader(http.StatusOK)
+			w.Write([]byte(time.Now().Format("2006-01-02T15:04:05-0700")))
 		}),
 	}
 
