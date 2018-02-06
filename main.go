@@ -215,6 +215,7 @@ func main() {
 	log.SetFlags(0)
 
 	var listenAddress = flag.String("listen", ":8888", "Listen address.")
+	var defaultServerName = flag.String("default-server-name", "example.com", "Default server name to use when the cilent does not send the SNI extension.")
 
 	flag.Parse()
 
@@ -270,6 +271,17 @@ func main() {
 
 			return nil, nil
 		},
+		GetCertificate: func(clientHello *tls.ClientHelloInfo) (*tls.Certificate, error) {
+			serverName := clientHello.ServerName
+			if serverName == "" {
+				serverName = *defaultServerName
+			}
+			// TODO cache these certificates.
+			kp, err := tls.LoadX509KeyPair(
+				fmt.Sprintf("%s-crt.pem", serverName),
+				fmt.Sprintf("%s-key.pem", serverName))
+			return &kp, err
+		},
 	}
 
 	server := &http.Server{
@@ -306,7 +318,7 @@ func main() {
 		}),
 	}
 
-	err = server.ListenAndServeTLS("example.com-crt.pem", "example.com-keypair.pem")
+	err = server.ListenAndServeTLS("", "")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -1,14 +1,14 @@
 #!/bin/bash
 set -eux
-openssl genrsa -out example.com-keypair.pem 2048
+openssl genrsa -out example.com-key.pem 2048
 openssl req -new \
     -sha256 \
-    -key example.com-keypair.pem \
+    -key example.com-key.pem \
     -out example.com-csr.pem \
     -subj /CN=example.com
 openssl x509 -req \
     -sha256 \
-    -signkey example.com-keypair.pem \
+    -signkey example.com-key.pem \
     -days 9999 \
     -extensions a \
     -extfile <(echo "[a]
