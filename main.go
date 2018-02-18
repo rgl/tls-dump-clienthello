@@ -216,6 +216,7 @@ func main() {
 
 	var listenAddress = flag.String("listen", ":8888", "Listen address.")
 	var defaultServerName = flag.String("default-server-name", "example.com", "Default server name to use when the cilent does not send the SNI extension.")
+	var logClientHelloSupportedCrypto = flag.Bool("log-client-hello-supported-crypto", true, "whether to log the client supported crypto parameters.")
 
 	flag.Parse()
 
@@ -246,27 +247,27 @@ func main() {
 		GetConfigForClient: func(clientHello *tls.ClientHelloInfo) (*tls.Config, error) {
 			log.Printf("----")
 			log.Printf("client address: %s", clientHello.Conn.RemoteAddr())
-
-			for _, versionId := range clientHello.SupportedVersions {
-				protocolVersion := protocolVersions[versionId]
-				if protocolVersion == "" {
-					protocolVersion = fmt.Sprintf("0x%04x", versionId)
-				}
-				log.Printf("client version: %s", protocolVersion)
-			}
-
 			log.Printf("client SNI: %s", clientHello.ServerName)
 
-			for _, cipherSuiteId := range clientHello.CipherSuites {
-				log.Printf("client cipher suite: %s (0x%04x)", knownCipherSuites[cipherSuiteId], cipherSuiteId)
-			}
+			if *logClientHelloSupportedCrypto {
+				for _, versionId := range clientHello.SupportedVersions {
+					protocolVersion := protocolVersions[versionId]
+					if protocolVersion == "" {
+						protocolVersion = fmt.Sprintf("0x%04x", versionId)
+					}
+					log.Printf("client version: %s", protocolVersion)
+				}
+				for _, cipherSuiteId := range clientHello.CipherSuites {
+					log.Printf("client cipher suite: %s (0x%04x)", knownCipherSuites[cipherSuiteId], cipherSuiteId)
+				}
 
-			for _, curveId := range clientHello.SupportedCurves {
-				log.Printf("client curve: %s (%d)", knownCurves[curveId], curveId)
-			}
+				for _, curveId := range clientHello.SupportedCurves {
+					log.Printf("client curve: %s (%d)", knownCurves[curveId], curveId)
+				}
 
-			for _, pointId := range clientHello.SupportedPoints {
-				log.Printf("client point: %s (%d)", knownPoints[pointId], pointId)
+				for _, pointId := range clientHello.SupportedPoints {
+					log.Printf("client point: %s (%d)", knownPoints[pointId], pointId)
+				}
 			}
 
 			return nil, nil
