@@ -217,6 +217,7 @@ func main() {
 	var listenAddress = flag.String("listen", ":8888", "Listen address.")
 	var defaultServerName = flag.String("default-server-name", "example.com", "Default server name to use when the cilent does not send the SNI extension.")
 	var logClientHelloSupportedCrypto = flag.Bool("log-client-hello-supported-crypto", true, "whether to log the client supported crypto parameters.")
+	var keyLogFilename = flag.String("key-log", "", "Write the TLS session keys into this file (e.g. key-log.txt). You can also set the SSLKEYLOGFILE environment variable. See https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS/Key_Log_Format.")
 
 	flag.Parse()
 
@@ -283,6 +284,18 @@ func main() {
 				fmt.Sprintf("%s-key.pem", serverName))
 			return &kp, err
 		},
+	}
+
+	if *keyLogFilename == "" {
+		*keyLogFilename = os.Getenv("SSLKEYLOGFILE")
+	}
+
+	if *keyLogFilename != "" {
+		keyLog, err := os.OpenFile(*keyLogFilename, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0600)
+		if err != nil {
+			log.Fatal(err)
+		}
+		tlsConfig.KeyLogWriter = keyLog
 	}
 
 	server := &http.Server{
