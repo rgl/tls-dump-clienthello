@@ -6,6 +6,10 @@ openssl req -new \
     -key example.com-key.pem \
     -out example.com-csr.pem \
     -subj /CN=example.com
+openssl req \
+    -noout \
+    -text \
+    -in example.com-csr.pem
 openssl x509 -req \
     -sha256 \
     -signkey example.com-key.pem \
