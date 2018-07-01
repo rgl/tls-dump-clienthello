@@ -37,7 +37,7 @@ func loadCipherSuites(fileName string) (map[uint16]string, error) {
 	defer f.Close()
 
 	r := csv.NewReader(f)
-	r.FieldsPerRecord = 4
+	r.FieldsPerRecord = 5
 
 	header, err := r.Read()
 
@@ -45,7 +45,7 @@ func loadCipherSuites(fileName string) (map[uint16]string, error) {
 		return nil, err
 	}
 
-	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Reference" {
+	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Recommended,Reference" {
 		return nil, errors.New("Invalid header")
 	}
 
@@ -98,7 +98,7 @@ func loadCurves(fileName string) (map[tls.CurveID]string, error) {
 	defer f.Close()
 
 	r := csv.NewReader(f)
-	r.FieldsPerRecord = 4
+	r.FieldsPerRecord = 6
 
 	header, err := r.Read()
 
@@ -106,7 +106,7 @@ func loadCurves(fileName string) (map[tls.CurveID]string, error) {
 		return nil, err
 	}
 
-	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Reference" {
+	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Recommended,Reference,Comment" {
 		return nil, errors.New("Invalid header")
 	}
 
