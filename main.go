@@ -14,6 +14,7 @@ import (
 	"net/http"
 	"os"
 	"regexp"
+	"runtime"
 	"strconv"
 	"strings"
 	"time"
@@ -331,6 +332,10 @@ func main() {
 			w.Write([]byte(time.Now().Format("2006-01-02T15:04:05-0700")))
 		}),
 	}
+
+	log.Printf("Binary built with runtime %s", runtime.Version())
+	log.Printf("Listening at %s", *listenAddress)
+	log.Println("Press Ctrl+C to quit")
 
 	err = server.ListenAndServeTLS("", "")
 	if err != nil {
