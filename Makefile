@@ -14,6 +14,7 @@ tls-dump-clienthello${EXT}: *.go
 
 tls-dump-clienthello.zip: ${DIST_DEPS}
 	zip $@ $^
+	sha256sum $@
 
 tls-parameters:
 	wget -qO tls-parameters-4.csv https://www.iana.org/assignments/tls-parameters/tls-parameters-4.csv
