@@ -1,3 +1,9 @@
 tls-dump-clienthello.exe
 tls-dump-clienthello.zip
-key-log.txt
+*key-log.txt
+.*
+.gradle/
+build/
+bin/
+*.jar
+*.zip
