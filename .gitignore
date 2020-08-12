@@ -8,5 +8,6 @@ tls-dump-clienthello
 .gradle/
 build/
 bin/
+obj/
 *.jar
 *.zip

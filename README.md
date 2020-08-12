@@ -23,7 +23,7 @@ Open the [example-clients directory](example-clients) to see some example client
 
 # Example outputs
 
-## Go 1.15.0 (Ubuntu 20.04)
+## Go 1.15.0 (Ubuntu 20.04 and Windows Server 2019)
 
 With [example-clients/go/main.go](example-clients/go/main.go):
 
@@ -126,9 +126,9 @@ handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol:
 ```
 
-## .NET 4.5.2 (default settings; Windows)
+## .NET Core 3.1.7 (Windows Server 2019)
 
-With:
+With [example-clients/dotnet/Program.cs](example-clients/dotnet/Program.cs):
 
 ```csharp
 new WebClient().DownloadString("https://example.com:8888");
@@ -137,74 +137,92 @@ new WebClient().DownloadString("https://example.com:8888");
 Outputs:
 
 ```
-client version: TLSv1.0
 client SNI: example.com
-client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
-client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
-client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
-client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
-client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA (0x0038)
-client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA (0x0032)
-client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
-client cipher suite: TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA (0x0013)
-client cipher suite: TLS_RSA_WITH_RC4_128_SHA (0x0005)
-client cipher suite: TLS_RSA_WITH_RC4_128_MD5 (0x0004)
-client curve: secp256r1 (23)
-client curve: secp384r1 (24)
-client point: uncompressed (0)
-```
-
-## .NET 4.5.2 (custom settings; Windows)
-
-With:
-
-```csharp
-ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
-                                     | SecurityProtocolType.Tls11
-                                     | SecurityProtocolType.Tls12;
-
-new WebClient().DownloadString("https://example.com:8888");
-```
-
-Outputs:
-
-```
 client version: TLSv1.2
-client SNI: example.com
-client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client version: TLSv1.1
+client version: TLSv1.0
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
 client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
 client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
-client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
-client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
 client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
 client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
 client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
 client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
-client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 (0x006a)
-client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 (0x0040)
-client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA (0x0038)
-client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA (0x0032)
 client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
-client cipher suite: TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA (0x0013)
-client cipher suite: TLS_RSA_WITH_RC4_128_SHA (0x0005)
-client cipher suite: TLS_RSA_WITH_RC4_128_MD5 (0x0004)
+client curve: x25519 (29)
 client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client point: uncompressed (0)
+handshake version: TLSv1.2
+handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+handshake protocol:
 ```
 
-## Java 11.0.8 (Ubuntu 20.04)
+## .NET Framework 4.8.3928.0 (Windows Server 2019)
+
+With:
+
+```csharp
+// NB even with these custom settings, the result was the same.
+// ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls
+//                                      | SecurityProtocolType.Tls11
+//                                      | SecurityProtocolType.Tls12
+//                                      | SecurityProtocolType.Tls13;
+
+new WebClient().DownloadString("https://example.com:8888");
+```
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+handshake version: TLSv1.2
+handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+handshake protocol:
+```
+
+## Java 11.0.8 (Ubuntu 20.04 and Windows Server 2019)
 
 With:
 
@@ -282,7 +300,7 @@ handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol:
 ```
 
-## Firefox 79.0 (Ubuntu 20.04)
+## Firefox 79.0 (Ubuntu 20.04 and Windows Server 2019)
 
 ```
 client SNI: example.com
@@ -318,7 +336,7 @@ handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
 ```
 
-## Chrome 84.0.4147.125 (Ubuntu 20.04)
+## Chrome 84.0.4147.125 (Ubuntu 20.04 and Windows Server 2019)
 
 ```
 client SNI: example.com
