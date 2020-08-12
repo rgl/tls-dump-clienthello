@@ -1,5 +1,9 @@
 SHELL = /bin/bash
+ifeq ($(OS),Windows_NT)
 EXT = .exe
+else
+EXT =
+endif
 DIST_DEPS = $(shell echo tls-dump-clienthello${EXT} tls-parameters-{4,8,9}.csv example.com-{crt,key}.pem)
 
 all: tls-parameters bin tls-dump-clienthello.zip
