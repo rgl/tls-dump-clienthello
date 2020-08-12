@@ -25,6 +25,7 @@ var protocolVersions = map[uint16]string{
 	tls.VersionTLS10: "TLSv1.0",
 	tls.VersionTLS11: "TLSv1.1",
 	tls.VersionTLS12: "TLSv1.2",
+	tls.VersionTLS13: "TLSv1.3",
 }
 
 // http://www.iana.org/assignments/tls-parameters/tls-parameters.xml#tls-parameters-4
