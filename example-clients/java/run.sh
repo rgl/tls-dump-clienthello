@@ -4,7 +4,7 @@ set -eux
 gradle clean build
 
 if [ ! -f jSSLKeyLog.jar ]; then
-    wget -q https://netcologne.dl.sourceforge.net/project/jsslkeylog/jsslkeylog-1.2/jSSLKeyLog-1.2.zip
+    wget -q https://github.com/jsslkeylog/jsslkeylog/releases/download/v1.2.0/jSSLKeyLog-1.2.zip
     7z x jSSLKeyLog-1.2.zip jSSLKeyLog.jar
 fi
 

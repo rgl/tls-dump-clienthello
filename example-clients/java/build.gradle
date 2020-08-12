@@ -1,17 +1,18 @@
-// see https://docs.gradle.org/5.2/userguide/java_plugin.html
-// see https://docs.gradle.org/5.2/userguide/application_plugin.html
+// see https://docs.gradle.org/6.6/userguide/java_plugin.html
+// see https://docs.gradle.org/6.6/userguide/application_plugin.html
 // see http://imperceptiblethoughts.com/shadow/
+// see https://github.com/johnrengelman/shadow
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '5.1.0'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
 apply plugin: 'application'
 
 mainClassName = 'net.example.Example'
 version = '1.0.0'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 11
+targetCompatibility = 11
 
 jar {
     manifest {
@@ -30,6 +31,6 @@ repositories {
 dependencies {
     // see https://logging.apache.org/log4j/2.x/maven-artifacts.html#Using_Log4j_in_your_Gradle_build
     // see https://logging.apache.org/log4j/2.x/runtime-dependencies.html
-    compile 'org.apache.logging.log4j:log4j-api:2.11.2'
-    compile 'org.apache.logging.log4j:log4j-core:2.11.2'
+    compile 'org.apache.logging.log4j:log4j-api:2.13.3'
+    compile 'org.apache.logging.log4j:log4j-core:2.13.3'
 }
