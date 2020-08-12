@@ -1,3 +1,5 @@
+[![Build status](https://github.com/rgl/tls-dump-clienthello/workflows/Build/badge.svg)](https://github.com/rgl/tls-dump-clienthello/actions?query=workflow%3ABuild)
+
 this dumps the [TLS ClientHello message](https://tools.ietf.org/html/rfc5246#section-7.4.1.2) to stdout. this might be useful when testing your TLS client settings.
 
 # Usage
