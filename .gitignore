@@ -1,10 +1,8 @@
-tls-dump-clienthello.exe
-tls-dump-clienthello.zip
-tls-dump-clienthello
 /example-clients/go/go.exe
 /example-clients/go/go
 *key-log.txt
 .gradle/
+dist/
 build/
 bin/
 obj/

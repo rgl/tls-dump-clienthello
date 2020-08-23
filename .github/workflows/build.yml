@@ -6,14 +6,26 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set up Go 1.15
         uses: actions/setup-go@v2
         with:
           go-version: '1.15.0'
-      - name: Build
-        run: make
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euxo pipefail
+          if [[ $GITHUB_REF == refs/tags/v* ]]; then
+            make release
+          else
+            make release-snapshot
+          fi
       - name: Archive
         uses: actions/upload-artifact@v2
         with:
           name: artifacts
-          path: '*.zip'
+          path: |
+            dist/
+            !dist/*/*

@@ -20,6 +20,12 @@ import (
 	"time"
 )
 
+var (
+	version = "unknown"
+	commit  = "unknown"
+	date    = "unknown"
+)
+
 var protocolVersions = map[uint16]string{
 	tls.VersionSSL30: "SSLv3.0",
 	tls.VersionTLS10: "TLSv1.0",
@@ -215,6 +221,8 @@ func loadPoints(fileName string) (map[uint8]string, error) {
 //	(printf 'GET / HTTP/1.0\n\n'; sleep .1) | openssl s_client -connect localhost:8888 -servername example.com
 func main() {
 	log.SetFlags(0)
+
+	log.Printf("Starting tls-dump-clienthello (version %s; commit %s; date %s)", version, commit, date)
 
 	var listenAddress = flag.String("listen", ":8888", "Listen address.")
 	var defaultServerName = flag.String("default-server-name", "example.com", "Default server name to use when the cilent does not send the SNI extension.")

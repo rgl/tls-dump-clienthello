@@ -1,31 +1,34 @@
 SHELL = /bin/bash
-ifeq ($(OS),Windows_NT)
-EXT = .exe
-else
-EXT =
-endif
-DIST_DEPS = $(shell echo tls-dump-clienthello${EXT} tls-parameters-{4,8,9}.csv example.com-{crt,key}.pem)
+GOPATH := $(shell go env GOPATH | tr '\\' '/')
+GOEXE := $(shell go env GOEXE)
+GORELEASER := $(GOPATH)/bin/goreleaser$(GOEXE)
+EXTRA_SOURCE_FILES := \
+	tls-parameters-4.csv \
+	tls-parameters-8.csv \
+	tls-parameters-9.csv \
+	example.com-crt.pem
 
-all: tls-parameters bin tls-dump-clienthello.zip
+all: build
+
+$(GORELEASER):
+	wget -qO- https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | BINDIR=$(GOPATH)/bin sh
+
+build: $(GORELEASER) $(EXTRA_SOURCE_FILES)
+	$(GORELEASER) build --skip-validate --rm-dist
+
+release-snapshot: $(GORELEASER) $(EXTRA_SOURCE_FILES)
+	$(GORELEASER) release --snapshot --skip-publish --rm-dist
+
+release: $(GORELEASER) $(EXTRA_SOURCE_FILES)
+	$(GORELEASER) release --rm-dist
 
 clean:
-	rm -f tls-dump-clienthello*
+	rm -rf dist
 
-bin: tls-dump-clienthello${EXT}
-
-tls-dump-clienthello${EXT}: *.go
-	go build -o $@ -ldflags "-s"
-
-tls-dump-clienthello.zip: ${DIST_DEPS}
-	zip $@ $^
-	sha256sum $@
-
-tls-parameters:
-	wget -qO tls-parameters-4.csv https://www.iana.org/assignments/tls-parameters/tls-parameters-4.csv
-	wget -qO tls-parameters-8.csv https://www.iana.org/assignments/tls-parameters/tls-parameters-8.csv
-	wget -qO tls-parameters-9.csv https://www.iana.org/assignments/tls-parameters/tls-parameters-9.csv
+tls-parameters-%.csv:
+	wget -qO $@ https://www.iana.org/assignments/tls-parameters/$@
 
 example.com-crt.pem:
 	./create-certificate.sh
 
-.PHONY: all clean tls-parameters bin
+.PHONY: all build release-snapshot release clean

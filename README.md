@@ -16,7 +16,7 @@ Build and launch the https server:
 
 ```bash
 make
-./tls-dump-clienthello
+./dist/tls-dump-clienthello_$(go env GOOS)_$(go env GOARCH)/tls-dump-clienthello
 ```
 
 Then open https://example.com in the client you want to test.
