@@ -29,18 +29,7 @@ Vagrant.configure('2') do |config|
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-common.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tools.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tls-dump-clienthello.ps1'
-      [
-        'browser',
-        'curl',
-        'dotnet',
-        'dotnetframework',
-        'go',
-        'java',
-        'nodejs',
-      ].each do |args|
-        config.vm.provision :shell, path: 'provisioning/windows/run-example-client.ps1', args: args
-      end
-      config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'get-example-summary.ps1'
+      config.vm.provision :shell, path: 'provisioning/windows/run-example-clients.ps1'
     end
   end
 end
