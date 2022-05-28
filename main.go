@@ -15,6 +15,7 @@ import (
 	"os"
 	"regexp"
 	"runtime"
+	"sort"
 	"strconv"
 	"strings"
 	"time"
@@ -331,9 +332,20 @@ func main() {
 			if r.Host != "" {
 				log.Printf("http header: Host: %s", r.Host)
 			}
-			for name, headers := range r.Header {
+			keys := make([]string, 0, len(r.Header))
+			for k := range r.Header {
+				keys = append(keys, k)
+			}
+			sort.Strings(keys)
+			for _, name := range keys {
+				headers := r.Header[name]
 				for _, value := range headers {
 					log.Printf("http header: %s: %s", name, value)
+				}
+			}
+			for name, values := range r.URL.Query() {
+				for _, value := range values {
+					log.Printf("http query: %s=%s", name, value)
 				}
 			}
 
