@@ -35,6 +35,7 @@ Vagrant.configure('2') do |config|
         'dotnetframework',
         'go',
         'java',
+        'nodejs',
       ].each do |args|
         config.vm.provision :shell, path: 'provisioning/windows/run-example-client.ps1', args: args
       end

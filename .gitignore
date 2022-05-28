@@ -3,6 +3,7 @@
 *key-log.txt
 .vagrant/
 .gradle/
+node_modules/
 dist/
 build/
 bin/

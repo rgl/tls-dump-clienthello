@@ -105,3 +105,4 @@ choco install -y dotnet-sdk --version 6.0.300 # dotnet 6.0.5
 choco install -y go --version 1.18.2
 choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15
 choco install -y gradle --version 6.6
+choco install -y nodejs-lts --version 16.15.0

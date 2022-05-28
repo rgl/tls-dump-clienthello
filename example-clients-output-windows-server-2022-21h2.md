@@ -291,3 +291,91 @@ http header: Host: example.com:8888
 http header: User-Agent: Java/11.0.15
 http query: example-client=java/11.0.15+10
 ```
+
+## Node.js 16.15.0
+    
+With [example-clients/nodejs](example-clients/nodejs/main.js):
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 (0x0067)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 (0x006b)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384 (0x00a3)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xccaa)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8 (0xc0af)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CCM (0xc0ad)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CCM_8 (0xc0a3)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CCM (0xc09f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_ARIA_256_GCM_SHA384 (0xc05d)
+client cipher suite: TLS_ECDHE_RSA_WITH_ARIA_256_GCM_SHA384 (0xc061)
+client cipher suite: TLS_DHE_DSS_WITH_ARIA_256_GCM_SHA384 (0xc057)
+client cipher suite: TLS_DHE_RSA_WITH_ARIA_256_GCM_SHA384 (0xc053)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_GCM_SHA256 (0x00a2)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8 (0xc0ae)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CCM (0xc0ac)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CCM_8 (0xc0a2)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CCM (0xc09e)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_ARIA_128_GCM_SHA256 (0xc05c)
+client cipher suite: TLS_ECDHE_RSA_WITH_ARIA_128_GCM_SHA256 (0xc060)
+client cipher suite: TLS_DHE_DSS_WITH_ARIA_128_GCM_SHA256 (0xc056)
+client cipher suite: TLS_DHE_RSA_WITH_ARIA_128_GCM_SHA256 (0xc052)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 (0x006a)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 (0x0040)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (0x0039)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA (0x0038)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (0x0033)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA (0x0032)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_256_CCM_8 (0xc0a1)
+client cipher suite: TLS_RSA_WITH_AES_256_CCM (0xc09d)
+client cipher suite: TLS_RSA_WITH_ARIA_256_GCM_SHA384 (0xc051)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_128_CCM_8 (0xc0a0)
+client cipher suite: TLS_RSA_WITH_AES_128_CCM (0xc09c)
+client cipher suite: TLS_RSA_WITH_ARIA_128_GCM_SHA256 (0xc050)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_EMPTY_RENEGOTIATION_INFO_SCSV (0x00ff)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: x448 (30)
+client curve: secp521r1 (25)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+client point: ansiX962_compressed_prime (1)
+client point: ansiX962_compressed_char2 (2)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+http: GET /?example-client=nodejs%2F16.15.0 HTTP/1.1
+http header: Accept-Encoding: gzip,deflate,br
+http header: Accept: */*
+http header: Connection: close
+http header: Host: example.com:8888
+http header: User-Agent: node-fetch
+http query: example-client=nodejs/16.15.0
+```
