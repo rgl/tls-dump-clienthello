@@ -11,7 +11,7 @@ EXTRA_SOURCE_FILES := \
 all: build
 
 $(GORELEASER):
-	wget -qO- https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | BINDIR=$(GOPATH)/bin sh
+	go install github.com/goreleaser/goreleaser@v1.9.2
 
 build: $(GORELEASER) $(EXTRA_SOURCE_FILES)
 	$(GORELEASER) build --skip-validate --rm-dist
