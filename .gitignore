@@ -1,6 +1,7 @@
 /example-clients/go/go.exe
 /example-clients/go/go
 *key-log.txt
+.vagrant/
 .gradle/
 dist/
 build/

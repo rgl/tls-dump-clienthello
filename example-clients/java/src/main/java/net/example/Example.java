@@ -5,6 +5,7 @@ package net.example;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -46,7 +47,7 @@ public class Example {
             null
         );
 
-        check(context.getSocketFactory(), "https://example.com:8888");
+        check(context.getSocketFactory(), String.format("https://example.com:8888?example-client=%s", URLEncoder.encode("java/"+Runtime.version(), "utf-8")));
     }
 
     private static void dumpCertificates(String prefix, Certificate[] certificates) {

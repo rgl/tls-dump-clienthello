@@ -7,6 +7,6 @@ else
     EXTENSION=''
 fi
 
-dotnet --diagnostics build --configuration Release
+go build
 
-./bin/Release/netcoreapp3.1/dotnet$EXTENSION
+./go$EXTENSION

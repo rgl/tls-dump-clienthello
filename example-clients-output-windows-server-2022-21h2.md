@@ -1,0 +1,293 @@
+# Example Windows Server 2022 (21H2) outputs
+
+## .NET 3.1.25
+
+With [example-clients//Program.cs](example-clients//Program.cs):
+
+```csharp
+new WebClient().DownloadString("https://example.com:8888");
+```
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+handshake version: TLSv1.2
+handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+http: GET /?example-client=dotnet%2F3.1.25 HTTP/1.1
+http header: Connection: Keep-Alive
+http header: Host: example.com:8888
+http query: example-client=dotnet/3.1.25
+```
+
+## .NET Framework 4.8.4510.0
+
+With [example-clients/framework/Program.cs](example-clients/framework/Program.cs):
+
+```csharp
+new WebClient().DownloadString("https://example.com:8888");
+```
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_AES_128_GCM_SHA256
+http: GET /?example-client=dotnetframework%2F4.8.4510.0 HTTP/1.1
+http header: Connection: Keep-Alive
+http header: Host: example.com:8888
+http query: example-client=dotnetframework/4.8.4510.0
+```
+
+## Curl 7.83.1
+
+With [example-clients/curl](example-clients/curl/run.sh).
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client version: TLSv1.1
+client version: TLSv1.0
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xccaa)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 (0x006b)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 (0x0067)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (0x0039)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (0x0033)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_EMPTY_RENEGOTIATION_INFO_SCSV (0x00ff)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: x448 (30)
+client curve: secp521r1 (25)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+client point: ansiX962_compressed_prime (1)
+client point: ansiX962_compressed_char2 (2)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake protocol: h2
+http: GET /?example-client=curl%2F7.83.1 HTTP/2.0
+http header: Accept: */*
+http header: Host: example.com:8888
+http header: User-Agent: curl/7.83.1
+http query: example-client=curl/7.83.1
+```
+
+## Go 1.18.2
+    
+With [example-clients/go/main.go](example-clients/go/main.go):
+
+```go
+http.Get("https://example.com:8888")
+```
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA (0xc012)
+client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client curve: secp521r1 (25)
+client point: uncompressed (0)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake protocol: h2
+http: GET /?example-client=go%2F1.18.2 HTTP/2.0
+http header: Accept-Encoding: gzip
+http header: Host: example.com:8888
+http header: User-Agent: Go-http-client/2.0
+http query: example-client=go/1.18.2
+```
+
+## Java 11.0.15+10
+    
+With [example-clients/java](example-clients/java/src/main/java/net/example/Example.java):
+
+```java
+new URL("https://example.com:8888")
+    .openConnection()
+    .getInputStream()
+    .close();
+```
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xccaa)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384 (0x00a3)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_GCM_SHA256 (0x00a2)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 (0x006b)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 (0x006a)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 (0x0067)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 (0x0040)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02e)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384 (0xc032)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02d)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256 (0xc031)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384 (0xc026)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384 (0xc02a)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256 (0xc025)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256 (0xc029)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (0x0039)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA (0x0038)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (0x0033)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA (0x0032)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA (0xc005)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA (0xc00f)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA (0xc004)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA (0xc00e)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA256 (0x003d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA256 (0x003c)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_EMPTY_RENEGOTIATION_INFO_SCSV (0x00ff)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client curve: secp521r1 (25)
+client curve: x448 (30)
+client curve: ffdhe2048 (256)
+client curve: ffdhe3072 (257)
+client curve: ffdhe4096 (258)
+client curve: ffdhe6144 (259)
+client curve: ffdhe8192 (260)
+client point: uncompressed (0)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+http: GET /?example-client=java%2F11.0.15%2B10 HTTP/1.1
+http header: Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
+http header: Connection: keep-alive
+http header: Host: example.com:8888
+http header: User-Agent: Java/11.0.15
+http query: example-client=java/11.0.15+10
+```

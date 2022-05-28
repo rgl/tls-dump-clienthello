@@ -12,7 +12,7 @@ namespace dotnet
             // disable server certificate validation.
             ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
 
-            Console.WriteLine(new WebClient().DownloadString("https://example.com:8888"));
+            Console.WriteLine(new WebClient().DownloadString($"https://example.com:8888?example-client={WebUtility.UrlEncode("dotnet/"+System.Environment.Version)}"));
         }
     }
 }

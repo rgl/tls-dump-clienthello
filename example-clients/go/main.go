@@ -3,9 +3,13 @@ package main
 import (
 	"crypto/tls"
 	"crypto/x509"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
+	"runtime"
+	"strings"
 )
 
 func main() {
@@ -25,7 +29,7 @@ func main() {
 		RootCAs: rootCAs,
 	}
 
-	_, err = http.Get("https://example.com:8888")
+	_, err = http.Get(fmt.Sprintf("https://example.com:8888?example-client=%s", url.QueryEscape("go/"+strings.TrimPrefix(runtime.Version(), "go"))))
 	if err != nil {
 		log.Fatalf("failed to get https://example.com:8888: %v", err)
 	}
