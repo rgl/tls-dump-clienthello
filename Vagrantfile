@@ -30,6 +30,7 @@ Vagrant.configure('2') do |config|
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tools.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tls-dump-clienthello.ps1'
       [
+        'browser',
         'curl',
         'dotnet',
         'dotnetframework',

@@ -1,0 +1,16 @@
+{
+    "name": "browser",
+    "version": "1.0.0",
+    "description": "example browser tls client",
+    "main": "main.js",
+    "type": "module",
+    "author": "Rui Lopes <rgl@ruilopes.com>",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rgl/tls-dump-clienthello.git"
+    },
+    "dependencies": {
+        "playwright": "^1.22.2"
+    }
+}

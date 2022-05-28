@@ -96,6 +96,54 @@ http header: Host: example.com:8888
 http query: example-client=dotnetframework/4.8.4510.0
 ```
 
+## Chrome 102.0.5005.63
+
+With [example-clients/browser/main.js](example-clients/browser/main.js).
+
+Outputs:
+
+```
+client SNI: example.com
+client version: 0xbaba
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: Reserved (0xcaca)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client curve: Reserved (64250)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake protocol: h2
+http: GET /?example-client=chrome%2F102.0.5005.63 HTTP/2.0
+http header: Accept-Encoding: gzip, deflate, br
+http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+http header: Host: example.com:8888
+http header: Sec-Fetch-Dest: document
+http header: Sec-Fetch-Mode: navigate
+http header: Sec-Fetch-Site: none
+http header: Sec-Fetch-User: ?1
+http header: Upgrade-Insecure-Requests: 1
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/102.0.5005.63 Safari/537.36
+http query: example-client=chrome/102.0.5005.63
+```
+
 ## Curl 7.83.1
 
 With [example-clients/curl](example-clients/curl/run.sh).
@@ -155,6 +203,71 @@ http header: Accept: */*
 http header: Host: example.com:8888
 http header: User-Agent: curl/7.83.1
 http query: example-client=curl/7.83.1
+```
+
+## Firefox 99.0.1
+
+With [example-clients/browser/main.js](example-clients/browser/main.js).
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client curve: secp521r1 (25)
+client curve: ffdhe2048 (256)
+client curve: ffdhe3072 (257)
+client point: uncompressed (0)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake protocol: h2
+http: GET /?example-client=firefox%2F99.0.1 HTTP/2.0
+http header: Accept-Encoding: gzip, deflate, br
+http header: Accept-Language: en-US,en;q=0.5
+http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+http header: Host: example.com:8888
+http header: Sec-Fetch-Dest: document
+http header: Sec-Fetch-Mode: navigate
+http header: Sec-Fetch-Site: cross-site
+http header: Te: trailers
+http header: Upgrade-Insecure-Requests: 1
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
+http query: example-client=firefox/99.0.1
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake protocol: h2
+http: GET /favicon.ico HTTP/2.0
+http header: Accept-Encoding: gzip, deflate, br
+http header: Accept-Language: en-US,en;q=0.5
+http header: Accept: image/avif,image/webp,*/*
+http header: Host: example.com:8888
+http header: Referer: https://example.com:8888/?example-client=firefox%2F99.0.1
+http header: Sec-Fetch-Dest: image
+http header: Sec-Fetch-Mode: no-cors
+http header: Sec-Fetch-Site: same-origin
+http header: Te: trailers
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
 ```
 
 ## Go 1.18.2
