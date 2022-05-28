@@ -4,7 +4,7 @@ this dumps the [TLS ClientHello message](https://tools.ietf.org/html/rfc5246#sec
 
 # Usage
 
-Install [Go 1.15](https://golang.org/dl/).
+Install [Go 1.18.2](https://go.dev/dl/).
 
 Add `example.com` to your `hosts` file:
 
@@ -16,7 +16,7 @@ Build and launch the https server:
 
 ```bash
 make
-./dist/tls-dump-clienthello_$(go env GOOS)_$(go env GOARCH)/tls-dump-clienthello
+./dist/tls-dump-clienthello_$(go env GOOS)_$(go env GOARCH)_$(go env GOAMD64)/tls-dump-clienthello
 ```
 
 Then open https://example.com in the client you want to test.
