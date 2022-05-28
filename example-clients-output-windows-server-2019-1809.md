@@ -1,11 +1,11 @@
 # Example Windows Server 2019 (1809) outputs
 
-## .NET 3.1.25
+## .NET 6.0.5
 
 With [example-clients/dotnet](example-clients/dotnet):
 
 ```csharp
-new WebClient().DownloadString("https://example.com:8888");
+await new HttpClient().GetStringAsync("https://example.com:8888");
 ```
 
 Outputs:
@@ -42,10 +42,9 @@ client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.2
 handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-http: GET /?example-client=dotnet%2F3.1.25 HTTP/1.1
+http: GET /?example-client=dotnet%2F6.0.5 HTTP/1.1
 http header: Host: example.com:8888
-http header: Connection: Keep-Alive
-http query: example-client=dotnet/3.1.25
+http query: example-client=dotnet/6.0.5
 ```
 
 ## .NET Framework 4.8.3928.0

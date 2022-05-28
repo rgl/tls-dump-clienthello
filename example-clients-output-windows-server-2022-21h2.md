@@ -1,20 +1,23 @@
 # Example Windows Server 2022 (21H2) outputs
 
-## .NET 3.1.25
+## .NET 6.0.5
 
 With [example-clients/dotnet](example-clients/dotnet):
 
 ```csharp
-new WebClient().DownloadString("https://example.com:8888");
+await new HttpClient().GetStringAsync("https://example.com:8888");
 ```
 
 Outputs:
 
 ```
 client SNI: example.com
+client version: TLSv1.3
 client version: TLSv1.2
 client version: TLSv1.1
 client version: TLSv1.0
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
@@ -38,13 +41,11 @@ client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
 client curve: x25519 (29)
 client curve: secp256r1 (23)
 client curve: secp384r1 (24)
-client point: uncompressed (0)
-handshake version: TLSv1.2
-handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-http: GET /?example-client=dotnet%2F3.1.25 HTTP/1.1
+handshake version: TLSv1.3
+handshake cipher suite: TLS_AES_128_GCM_SHA256
+http: GET /?example-client=dotnet%2F6.0.5 HTTP/1.1
 http header: Host: example.com:8888
-http header: Connection: Keep-Alive
-http query: example-client=dotnet/3.1.25
+http query: example-client=dotnet/6.0.5
 ```
 
 ## .NET Framework 4.8.4510.0

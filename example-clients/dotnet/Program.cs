@@ -1,18 +1,21 @@
-﻿using System;
-using System.Net;
+﻿Console.WriteLine($"Runtime {System.Environment.Version} ({System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription})");
 
-namespace dotnet
+var handler = new HttpClientHandler
 {
-    class Program
+    // disable server certificate validation.
+    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+};
+
+using (var client = new HttpClient(handler))
+{
+    var data = new Dictionary<string, string>
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine($"Runtime {System.Environment.Version} ({System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription})");
+        {"example-client", "dotnet/"+System.Environment.Version},
+    };
 
-            // disable server certificate validation.
-            ServicePointManager.ServerCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+    var qs = await new FormUrlEncodedContent(data).ReadAsStringAsync();
 
-            Console.WriteLine(new WebClient().DownloadString($"https://example.com:8888?example-client={WebUtility.UrlEncode("dotnet/"+System.Environment.Version)}"));
-        }
-    }
+    var content = await client.GetStringAsync($"https://example.com:8888?{qs}");
+
+    Console.WriteLine(content);
 }

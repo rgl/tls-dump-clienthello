@@ -9,4 +9,4 @@ fi
 
 dotnet --diagnostics build --configuration Release
 
-./bin/Release/netcoreapp3.1/dotnet$EXTENSION
+./bin/Release/net6.0/dotnet$EXTENSION

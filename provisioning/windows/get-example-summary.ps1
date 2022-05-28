@@ -79,10 +79,19 @@ With [example-clients/browser](example-clients/browser).
 
 With [example-clients/curl](example-clients/curl).
 "@
-        } elseif ($_.Name -match '(dotnet(framework)?)') {
+        } elseif ($_.Name -eq 'dotnet') {
             @"
 
-With [example-clients/$($Matches[1])](example-clients/$($Matches[1])):
+With [example-clients/dotnet](example-clients/dotnet):
+
+``````csharp
+await new HttpClient().GetStringAsync("https://example.com:8888");
+``````
+"@
+        } elseif ($_.Name -eq 'dotnetframework') {
+            @"
+
+With [example-clients/dotnetframework](example-clients/dotnetframework):
 
 ``````csharp
 new WebClient().DownloadString("https://example.com:8888");
