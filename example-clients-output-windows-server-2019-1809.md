@@ -2,7 +2,7 @@
 
 ## .NET 3.1.25
 
-With [example-clients//Program.cs](example-clients//Program.cs):
+With [example-clients/dotnet](example-clients/dotnet):
 
 ```csharp
 new WebClient().DownloadString("https://example.com:8888");
@@ -43,14 +43,14 @@ client point: uncompressed (0)
 handshake version: TLSv1.2
 handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 http: GET /?example-client=dotnet%2F3.1.25 HTTP/1.1
-http header: Connection: Keep-Alive
 http header: Host: example.com:8888
+http header: Connection: Keep-Alive
 http query: example-client=dotnet/3.1.25
 ```
 
 ## .NET Framework 4.8.3928.0
 
-With [example-clients/framework/Program.cs](example-clients/framework/Program.cs):
+With [example-clients/dotnetframework](example-clients/dotnetframework):
 
 ```csharp
 new WebClient().DownloadString("https://example.com:8888");
@@ -91,23 +91,23 @@ client point: uncompressed (0)
 handshake version: TLSv1.2
 handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 http: GET /?example-client=dotnetframework%2F4.8.3928.0 HTTP/1.1
-http header: Connection: Keep-Alive
 http header: Host: example.com:8888
+http header: Connection: Keep-Alive
 http query: example-client=dotnetframework/4.8.3928.0
 ```
 
 ## Chrome 102.0.5005.63
 
-With [example-clients/browser/main.js](example-clients/browser/main.js).
+With [example-clients/browser](example-clients/browser).
 
 Outputs:
 
 ```
 client SNI: example.com
-client version: 0x0a0a
+client version: 0x7a7a
 client version: TLSv1.3
 client version: TLSv1.2
-client cipher suite: Reserved (0x1a1a)
+client cipher suite: Reserved (0xeaea)
 client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
 client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
@@ -123,7 +123,7 @@ client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
 client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
 client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
 client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
-client curve: Reserved (6682)
+client curve: Reserved (35466)
 client curve: x25519 (29)
 client curve: secp256r1 (23)
 client curve: secp384r1 (24)
@@ -132,9 +132,9 @@ handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
 http: GET /?example-client=chrome%2F102.0.5005.63 HTTP/2.0
-http header: Accept-Encoding: gzip, deflate, br
-http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Host: example.com:8888
+http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+http header: Accept-Encoding: gzip, deflate, br
 http header: Sec-Fetch-Dest: document
 http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: none
@@ -146,7 +146,7 @@ http query: example-client=chrome/102.0.5005.63
 
 ## Curl 7.83.1
 
-With [example-clients/curl](example-clients/curl/run.sh).
+With [example-clients/curl](example-clients/curl).
 
 Outputs:
 
@@ -199,15 +199,15 @@ handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
 http: GET /?example-client=curl%2F7.83.1 HTTP/2.0
-http header: Accept: */*
 http header: Host: example.com:8888
+http header: Accept: */*
 http header: User-Agent: curl/7.83.1
 http query: example-client=curl/7.83.1
 ```
 
 ## Firefox 99.0.1
 
-With [example-clients/browser/main.js](example-clients/browser/main.js).
+With [example-clients/browser](example-clients/browser).
 
 Outputs:
 
@@ -243,10 +243,10 @@ handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
 http: GET /?example-client=firefox%2F99.0.1 HTTP/2.0
+http header: Host: example.com:8888
+http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 http header: Accept-Encoding: gzip, deflate, br
 http header: Accept-Language: en-US,en;q=0.5
-http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-http header: Host: example.com:8888
 http header: Sec-Fetch-Dest: document
 http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: cross-site
@@ -258,10 +258,10 @@ handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
 http: GET /favicon.ico HTTP/2.0
+http header: Host: example.com:8888
+http header: Accept: image/avif,image/webp,*/*
 http header: Accept-Encoding: gzip, deflate, br
 http header: Accept-Language: en-US,en;q=0.5
-http header: Accept: image/avif,image/webp,*/*
-http header: Host: example.com:8888
 http header: Referer: https://example.com:8888/?example-client=firefox%2F99.0.1
 http header: Sec-Fetch-Dest: image
 http header: Sec-Fetch-Mode: no-cors
@@ -272,7 +272,7 @@ http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Geck
 
 ## Go 1.18.2
     
-With [example-clients/go/main.go](example-clients/go/main.go):
+With [example-clients/go](example-clients/go):
 
 ```go
 http.Get("https://example.com:8888")
@@ -312,15 +312,15 @@ handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
 http: GET /?example-client=go%2F1.18.2 HTTP/2.0
-http header: Accept-Encoding: gzip
 http header: Host: example.com:8888
+http header: Accept-Encoding: gzip
 http header: User-Agent: Go-http-client/2.0
 http query: example-client=go/1.18.2
 ```
 
 ## Java 11.0.15+10
     
-With [example-clients/java](example-clients/java/src/main/java/net/example/Example.java):
+With [example-clients/java](example-clients/java):
 
 ```java
 new URL("https://example.com:8888")
@@ -398,16 +398,16 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 http: GET /?example-client=java%2F11.0.15%2B10 HTTP/1.1
+http header: Host: example.com:8888
 http header: Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
 http header: Connection: keep-alive
-http header: Host: example.com:8888
 http header: User-Agent: Java/11.0.15
 http query: example-client=java/11.0.15+10
 ```
 
 ## Node.js 16.15.0
     
-With [example-clients/nodejs](example-clients/nodejs/main.js):
+With [example-clients/nodejs](example-clients/nodejs):
 
 Outputs:
 
@@ -485,10 +485,10 @@ client point: ansiX962_compressed_char2 (2)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 http: GET /?example-client=nodejs%2F16.15.0 HTTP/1.1
-http header: Accept-Encoding: gzip,deflate,br
-http header: Accept: */*
-http header: Connection: close
 http header: Host: example.com:8888
+http header: Accept: */*
+http header: Accept-Encoding: gzip,deflate,br
+http header: Connection: close
 http header: User-Agent: node-fetch
 http query: example-client=nodejs/16.15.0
 ```

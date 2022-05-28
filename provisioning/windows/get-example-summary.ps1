@@ -72,17 +72,17 @@ function Get-Summary($windowsVersion) {
         if ($_.Name -match '(chrome|firefox)') {
             @"
 
-With [example-clients/browser/main.js](example-clients/browser/main.js).
+With [example-clients/browser](example-clients/browser).
 "@
         } elseif ($_.Name -eq 'curl') {
             @"
 
-With [example-clients/curl](example-clients/curl/run.sh).
+With [example-clients/curl](example-clients/curl).
 "@
-        } elseif ($_.Name -match 'dotnet(framework)?') {
+        } elseif ($_.Name -match '(dotnet(framework)?)') {
             @"
 
-With [example-clients/$($Matches[1])/Program.cs](example-clients/$($Matches[1])/Program.cs):
+With [example-clients/$($Matches[1])](example-clients/$($Matches[1])):
 
 ``````csharp
 new WebClient().DownloadString("https://example.com:8888");
@@ -91,7 +91,7 @@ new WebClient().DownloadString("https://example.com:8888");
         } elseif ($_.Name -eq 'go') {
             @"
     
-With [example-clients/go/main.go](example-clients/go/main.go):
+With [example-clients/go](example-clients/go):
 
 ``````go
 http.Get("https://example.com:8888")
@@ -100,7 +100,7 @@ http.Get("https://example.com:8888")
         } elseif ($_.Name -eq 'java') {
             @"
     
-With [example-clients/java](example-clients/java/src/main/java/net/example/Example.java):
+With [example-clients/java](example-clients/java):
 
 ``````java
 new URL("https://example.com:8888")
@@ -112,7 +112,7 @@ new URL("https://example.com:8888")
         } elseif ($_.Name -eq 'nodejs') {
             @"
     
-With [example-clients/nodejs](example-clients/nodejs/main.js):
+With [example-clients/nodejs](example-clients/nodejs):
 "@
     }
     @"
