@@ -54,7 +54,7 @@ func loadCipherSuites(fileName string) (map[uint16]string, error) {
 	}
 
 	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Recommended,Reference" {
-		return nil, errors.New("Invalid header")
+		return nil, errors.New("invalid header")
 	}
 
 	suiteRegexp := regexp.MustCompile(`^0x([0-9a-fA-F]{2}),0x([0-9a-fA-F]{2})$`)
@@ -85,7 +85,7 @@ func loadCipherSuites(fileName string) (map[uint16]string, error) {
 		id, err := strconv.ParseUint(matches[1]+matches[2], 16, 16)
 
 		if err != nil {
-			return nil, errors.New("Invalid data")
+			return nil, errors.New("invalid data")
 		}
 
 		suites[uint16(id)] = description
@@ -115,7 +115,7 @@ func loadCurves(fileName string) (map[tls.CurveID]string, error) {
 	}
 
 	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Recommended,Reference,Comment" {
-		return nil, errors.New("Invalid header")
+		return nil, errors.New("invalid header")
 	}
 
 	curveRegexp := regexp.MustCompile(`^([0-9]+)$`)
@@ -146,7 +146,7 @@ func loadCurves(fileName string) (map[tls.CurveID]string, error) {
 		id, err := strconv.ParseUint(matches[1], 10, 16)
 
 		if err != nil {
-			return nil, errors.New("Invalid data")
+			return nil, errors.New("invalid data")
 		}
 
 		curves[tls.CurveID(id)] = description
@@ -176,7 +176,7 @@ func loadPoints(fileName string) (map[uint8]string, error) {
 	}
 
 	if strings.Join(header, ",") != "Value,Description,DTLS-OK,Reference" {
-		return nil, errors.New("Invalid header")
+		return nil, errors.New("invalid header")
 	}
 
 	pointRegexp := regexp.MustCompile(`^([0-9]+)$`)
@@ -207,7 +207,7 @@ func loadPoints(fileName string) (map[uint8]string, error) {
 		id, err := strconv.ParseUint(matches[1], 10, 8)
 
 		if err != nil {
-			return nil, errors.New("Invalid data")
+			return nil, errors.New("invalid data")
 		}
 
 		points[uint8(id)] = description
