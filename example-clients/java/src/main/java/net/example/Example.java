@@ -47,7 +47,18 @@ public class Example {
             null
         );
 
-        check(context.getSocketFactory(), String.format("https://example.com:8888?example-client=%s", URLEncoder.encode("java/"+Runtime.version(), "utf-8")));
+        String runtimeVersion = Runtime.version().toString();
+
+        // NB depending on your java distribution version, you might
+        //    be able to use different TLS versions by setting the
+        //    jdk.tls.client.protocols system property. for example:
+        //       -Djdk.tls.client.protocols="TLSv1.3,TLSv1.2"
+        String[] defaultProtocols = context.getDefaultSSLParameters().getProtocols();
+        log.info("jvm {} default protocols: {}.",
+                runtimeVersion,
+                String.join(", ", defaultProtocols));
+
+        check(context.getSocketFactory(), String.format("https://example.com:8888?example-client=%s", URLEncoder.encode("java/"+runtimeVersion, "utf-8")));
     }
 
     private static void dumpCertificates(String prefix, Certificate[] certificates) {

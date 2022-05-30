@@ -13,6 +13,10 @@ fi
 # NB search the web for "SSLKEYLOGFILE wireshark" to known how
 #    to configure wireshark to use this file as a
 #    (Pre)-Master-Secret log filename.
+# NB depending on your java distribution version, you might
+#    be able to use different TLS versions by setting the
+#    jdk.tls.client.protocols system property. for example:
+#       -Djdk.tls.client.protocols="TLSv1.3,TLSv1.2"
 java \
     -javaagent:jSSLKeyLog.jar=java-key-log.txt \
     -jar build/libs/example-1.0.0-all.jar
