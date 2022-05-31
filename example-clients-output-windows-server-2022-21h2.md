@@ -206,6 +206,55 @@ http header: User-Agent: curl/7.83.1
 http query: example-client=curl/7.83.1
 ```
 
+## Electron 19.0.1 (node/16.14.2 chrome=102.0.5005.61)
+
+With [example-clients/electron](example-clients/electron).
+
+Outputs:
+
+```
+client SNI: example.com
+client version: 0x9a9a
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: Reserved (0x7a7a)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
+client cipher suite: TLS_RSA_WITH_AES_256_GCM_SHA384 (0x009d)
+client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
+client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+client curve: Reserved (2570)
+client curve: x25519 (29)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake protocol: h2
+http: GET /?example-client=electron%2F19.0.1+%28node%2F16.14.2+chrome%3D102.0.5005.61%29 HTTP/2.0
+http header: Host: example.com:8888
+http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+http header: Accept-Encoding: gzip, deflate, br
+http header: Accept-Language: en-US
+http header: Sec-Fetch-Dest: document
+http header: Sec-Fetch-Mode: navigate
+http header: Sec-Fetch-Site: none
+http header: Sec-Fetch-User: ?1
+http header: Upgrade-Insecure-Requests: 1
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/102.0.5005.61 Electron/19.0.1 Safari/537.36
+http query: example-client=electron/19.0.1 (node/16.14.2 chrome=102.0.5005.61)
+```
+
 ## Firefox 99.0.1
 
 With [example-clients/browser](example-clients/browser).
@@ -272,7 +321,7 @@ http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Geck
 ```
 
 ## Go 1.18.2
-    
+
 With [example-clients/go](example-clients/go):
 
 ```go
@@ -320,7 +369,7 @@ http query: example-client=go/1.18.2
 ```
 
 ## Java 11.0.15+10
-    
+
 With [example-clients/java](example-clients/java):
 
 ```java
@@ -407,8 +456,8 @@ http query: example-client=java/11.0.15+10
 ```
 
 ## Node.js 16.15.0
-    
-With [example-clients/nodejs](example-clients/nodejs):
+
+With [example-clients/nodejs](example-clients/nodejs).
 
 Outputs:
 

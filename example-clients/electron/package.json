@@ -1,0 +1,15 @@
+{
+    "name": "example-electron-client",
+    "version": "1.0.0",
+    "description": "example electron tls client",
+    "main": "main.js",
+    "author": "Rui Lopes <rgl@ruilopes.com>",
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rgl/tls-dump-clienthello.git"
+    },
+    "devDependencies": {
+        "electron": "^19.0.1"
+    }
+}

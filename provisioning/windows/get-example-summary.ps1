@@ -26,7 +26,7 @@ function Write-Summary($lines) {
         }
     }
     $client = ($qs | Where-Object { $_.Name -eq 'example-client' }).Value
-    $parts = $client -split '/'
+    $parts = $client -split '/',2
     $name = $parts[0]
     $version = $parts[1]
     $title = switch ($name) {
@@ -34,6 +34,7 @@ function Write-Summary($lines) {
         'curl'              { "Curl $version" }
         'dotnet'            { ".NET $version" }
         'dotnetframework'   { ".NET Framework $version" }
+        'electron'          { "Electron $version" }
         'firefox'           { "Firefox $version" }
         'go'                { "Go $version" }
         'java'              { "Java $version" }
@@ -74,11 +75,6 @@ function Get-Summary($windowsVersion) {
 
 With [example-clients/browser](example-clients/browser).
 "@
-        } elseif ($_.Name -eq 'curl') {
-            @"
-
-With [example-clients/curl](example-clients/curl).
-"@
         } elseif ($_.Name -eq 'dotnet') {
             @"
 
@@ -99,7 +95,7 @@ new WebClient().DownloadString("https://example.com:8888");
 "@
         } elseif ($_.Name -eq 'go') {
             @"
-    
+
 With [example-clients/go](example-clients/go):
 
 ``````go
@@ -108,7 +104,7 @@ http.Get("https://example.com:8888")
 "@
         } elseif ($_.Name -eq 'java') {
             @"
-    
+
 With [example-clients/java](example-clients/java):
 
 ``````java
@@ -118,13 +114,13 @@ new URL("https://example.com:8888")
     .close();
 ``````
 "@
-        } elseif ($_.Name -eq 'nodejs') {
-            @"
-    
-With [example-clients/nodejs](example-clients/nodejs):
-"@
-    }
+        } else {
     @"
+
+With [example-clients/$($_.Name)](example-clients/$($_.Name)).
+"@
+        }
+@"
 
 Outputs:
 
