@@ -41,5 +41,11 @@ Get-ChildItem */run.sh | Sort-Object FullName | ForEach-Object {
     Bash ./run.sh
 }
 
+# stop the service to ensure the logs are flushed.
+Stop-Service tls-dump-clienthello
+
 # write the summary.
 . c:/vagrant/provisioning/windows/get-example-summary.ps1
+
+# start the service.
+Start-Service tls-dump-clienthello
