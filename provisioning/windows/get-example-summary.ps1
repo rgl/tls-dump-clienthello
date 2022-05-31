@@ -39,6 +39,7 @@ function Write-Summary($lines) {
         'go'                { "Go $version" }
         'java'              { "Java $version" }
         'nodejs'            { "Node.js $version" }
+        'nwjs'              { "NW.js $version" }
     }
     [PSCustomObject]@{
         Client = $client
