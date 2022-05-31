@@ -74,7 +74,7 @@ function Bash($script) {
 
 # configure the shell.
 Bash @'
-pacman --noconfirm -Sy make zip
+pacman --noconfirm -Sy --needed make
 
 cat >~/.bash_history <<"EOF"
 EOF
