@@ -1,5 +1,17 @@
 # Example Windows Server 2022 (21H2) outputs
 
+* [.NET 6.0.5](#net-605)
+* [.NET Framework 4.8.4510.0](#net-framework-4845100)
+* [Chrome 102.0.5005.63](#chrome-1020500563)
+* [Curl 7.83.1](#curl-7831)
+* [Electron 19.0.1 (node/16.14.2 chrome=102.0.5005.61)](#electron-1901-node16142-chrome1020500561)
+* [Firefox 99.0.1](#firefox-9901)
+* [Go 1.18.2](#go-1182)
+* [Java 11.0.15+10](#java-1101510)
+* [Node.js 16.15.0](#nodejs-16150)
+* [NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)](#nwjs-0650-node1800-chromium1020500561)
+* [Rust 1.60.0](#rust-1600)
+
 ## .NET 6.0.5
 
 With [example-clients/dotnet](example-clients/dotnet):
@@ -304,20 +316,6 @@ http header: Te: trailers
 http header: Upgrade-Insecure-Requests: 1
 http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
 http query: example-client=firefox/99.0.1
-handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-handshake protocol: h2
-http: GET /favicon.ico HTTP/2.0
-http header: Host: example.com:8888
-http header: Accept: image/avif,image/webp,*/*
-http header: Accept-Encoding: gzip, deflate, br
-http header: Accept-Language: en-US,en;q=0.5
-http header: Referer: https://example.com:8888/?example-client=firefox%2F99.0.1
-http header: Sec-Fetch-Dest: image
-http header: Sec-Fetch-Mode: no-cors
-http header: Sec-Fetch-Site: same-origin
-http header: Te: trailers
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
 ```
 
 ## Go 1.18.2

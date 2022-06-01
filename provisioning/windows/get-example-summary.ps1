@@ -17,15 +17,18 @@ function Write-Summary($lines) {
     if (!$lines) {
         return
     }
-    $qs = $lines | ForEach-Object {
+    $exampleClient = $lines | ForEach-Object {
         if ($_ -match '^http query: (?<name>.+?)=(?<value>.+)') {
             [PSCustomObject]@{
                 Name = $Matches.name
                 Value = $Matches.value
             }
         }
+    } | Where-Object { $_.Name -eq 'example-client' }
+    if (!$exampleClient) {
+        return
     }
-    $client = ($qs | Where-Object { $_.Name -eq 'example-client' }).Value
+    $client = $exampleClient.Value
     $parts = $client -split '/',2
     $name = $parts[0]
     $version = $parts[1]
@@ -41,6 +44,7 @@ function Write-Summary($lines) {
         'nodejs'            { "Node.js $version" }
         'nwjs'              { "NW.js $version" }
         'rust'              { "Rust $version" }
+        default             { return }
     }
     [PSCustomObject]@{
         Client = $client
@@ -52,11 +56,7 @@ function Write-Summary($lines) {
 }
 
 function Get-Summary($windowsVersion) {
-    @"
-# Example $($windowsVersion.Name) ($($windowsVersion.Version)) outputs
-"@
-
-    Get-Content c:\tls-dump-clienthello\*-stderr.log | ForEach-Object -Begin {
+    $summaries = Get-Content c:\tls-dump-clienthello\*-stderr.log | ForEach-Object -Begin {
         $lines = @()
     } -Process {
         if ($_ -eq '----') {
@@ -67,7 +67,18 @@ function Get-Summary($windowsVersion) {
         }
     } -End {
         Write-Summary $lines
-    } | Sort-Object Title | ForEach-Object {
+    } | Sort-Object Title
+
+    @"
+# Example $($windowsVersion.Name) ($($windowsVersion.Version)) outputs
+
+"@
+    $summaries | ForEach-Object {
+        @"
+* [$($_.Title)](#$($_.Title.ToLowerInvariant() -replace '[^a-z0-9 ]','' -replace '[ ]','-'))
+"@
+    }
+    $summaries | ForEach-Object {
         @"
 
 ## $($_.Title)
@@ -137,9 +148,9 @@ $windowsVersion = Get-WindowsVersion
 
 $summary = Get-Summary $windowsVersion
 
-[System.IO.File]::WriteAllLines(
+[System.IO.File]::WriteAllText(
     "c:\vagrant\example-clients-output-$($windowsVersion.Name.ToLowerInvariant() -replace ' ','-')-$($windowsVersion.Version.ToLowerInvariant()).md",
-    $summary,
+    ($summary -join "`n" -replace "`r`n","`n"),
     (New-Object System.Text.UTF8Encoding $False))
 
 Write-Output $summary
