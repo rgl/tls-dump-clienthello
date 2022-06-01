@@ -4,6 +4,15 @@ $serviceHome = "C:\$serviceName"
 $serviceSourcePath = Resolve-Path 'c:\vagrant\dist\*\*.exe'
 $servicePath = "$serviceHome\$(Split-Path -Leaf $serviceSourcePath)"
 
+# uninstall when required.
+if (Get-Service -ErrorAction Silentlycontinue $serviceName) {
+    Stop-Service $serviceName
+    nssm remove $serviceName confirm
+}
+if (Test-Path $serviceHome) {
+    Remove-Item -Recurse -Force $serviceHome
+}
+
 # install the service.
 Write-Host "Creating the $serviceName service..."
 nssm install $serviceName $servicePath
