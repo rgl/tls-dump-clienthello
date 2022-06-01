@@ -98,10 +98,22 @@ set completion-ignore-case on
 EOF
 '@
 
-# install the development tools.
+# install the .net framework development tools.
 choco install -y netfx-4.8-devpack
+
+# install the .net development tools.
 choco install -y dotnet-sdk --version 6.0.300 # dotnet 6.0.5
+
+# install the go development tools.
 choco install -y go --version 1.18.2
+
+# install the java development tools.
 choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15
 choco install -y gradle --version 6.6
+
+# install the node.js development tools.
 choco install -y nodejs-lts --version 16.15.0
+
+# install the rust development tools.
+choco install -y visualstudio2019-workload-vctools
+choco install -y rust-ms --version 1.60.0

@@ -40,6 +40,7 @@ function Write-Summary($lines) {
         'java'              { "Java $version" }
         'nodejs'            { "Node.js $version" }
         'nwjs'              { "NW.js $version" }
+        'rust'              { "Rust $version" }
     }
     [PSCustomObject]@{
         Client = $client

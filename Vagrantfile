@@ -18,6 +18,7 @@ Vagrant.configure('2') do |config|
         'build/',
         'bin/',
         'obj/',
+        'target/',
         '*.jar',
         '*.zip']
       config.vm.provision :file, source: 'example.com-crt.pem', destination: '/tmp/'
