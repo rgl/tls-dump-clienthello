@@ -4,6 +4,8 @@
 package main
 
 import (
+	"bytes"
+	"context"
 	"crypto/tls"
 	"encoding/csv"
 	"errors"
@@ -11,6 +13,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"regexp"
@@ -217,6 +220,14 @@ func loadPoints(fileName string) (map[uint8]string, error) {
 	}
 }
 
+type contextKey struct {
+	name string
+}
+
+func (k *contextKey) String() string { return k.name + " context value" }
+
+var handshakeInfoContextKey = &contextKey{"handshake"}
+
 // test with:
 //
 //	(printf 'GET / HTTP/1.0\n\n'; sleep .1) | openssl s_client -connect localhost:8888 -servername example.com
@@ -257,9 +268,11 @@ func main() {
 
 	tlsConfig := &tls.Config{
 		GetConfigForClient: func(clientHello *tls.ClientHelloInfo) (*tls.Config, error) {
-			log.Printf("----")
-			log.Printf("client address: %s", clientHello.Conn.RemoteAddr())
-			log.Printf("client SNI: %s", clientHello.ServerName)
+			handshakeInfoBuffer := clientHello.Context().Value(handshakeInfoContextKey).(*bytes.Buffer)
+
+			fmt.Fprintf(handshakeInfoBuffer, "----\n")
+			fmt.Fprintf(handshakeInfoBuffer, "client address: %s\n", clientHello.Conn.RemoteAddr())
+			fmt.Fprintf(handshakeInfoBuffer, "client SNI: %s\n", clientHello.ServerName)
 
 			if *logClientHelloSupportedCrypto {
 				for _, versionId := range clientHello.SupportedVersions {
@@ -267,20 +280,22 @@ func main() {
 					if protocolVersion == "" {
 						protocolVersion = fmt.Sprintf("0x%04x", versionId)
 					}
-					log.Printf("client version: %s", protocolVersion)
+					fmt.Fprintf(handshakeInfoBuffer, "client version: %s\n", protocolVersion)
 				}
 				for _, cipherSuiteId := range clientHello.CipherSuites {
-					log.Printf("client cipher suite: %s (0x%04x)", knownCipherSuites[cipherSuiteId], cipherSuiteId)
+					fmt.Fprintf(handshakeInfoBuffer, "client cipher suite: %s (0x%04x)\n", knownCipherSuites[cipherSuiteId], cipherSuiteId)
 				}
 
 				for _, curveId := range clientHello.SupportedCurves {
-					log.Printf("client curve: %s (%d)", knownCurves[curveId], curveId)
+					fmt.Fprintf(handshakeInfoBuffer, "client curve: %s (%d)\n", knownCurves[curveId], curveId)
 				}
 
 				for _, pointId := range clientHello.SupportedPoints {
-					log.Printf("client point: %s (%d)", knownPoints[pointId], pointId)
+					fmt.Fprintf(handshakeInfoBuffer, "client point: %s (%d)\n", knownPoints[pointId], pointId)
 				}
 			}
+
+			log.Print(handshakeInfoBuffer.String())
 
 			return nil, nil
 		},
@@ -312,7 +327,12 @@ func main() {
 	server := &http.Server{
 		Addr:      *listenAddress,
 		TLSConfig: tlsConfig,
+		ConnContext: func(ctx context.Context, c net.Conn) context.Context {
+			return context.WithValue(ctx, handshakeInfoContextKey, &bytes.Buffer{})
+		},
 		Handler: http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			handshakeInfoBuffer := r.Context().Value(handshakeInfoContextKey).(*bytes.Buffer)
+
 			state := r.TLS
 
 			protocolVersion := protocolVersions[state.Version]
@@ -325,12 +345,14 @@ func main() {
 				cipherSuite = fmt.Sprintf("%x", state.CipherSuite)
 			}
 
-			log.Printf("handshake version: %v", protocolVersion)
-			log.Printf("handshake cipher suite: %v", cipherSuite)
-			log.Printf("handshake protocol: %v", state.NegotiatedProtocol)
-			log.Printf("http: %s %s %s", r.Method, r.URL.RequestURI(), r.Proto)
+			buffer := bytes.Buffer{}
+			fmt.Fprint(&buffer, handshakeInfoBuffer.String())
+			fmt.Fprintf(&buffer, "handshake version: %v\n", protocolVersion)
+			fmt.Fprintf(&buffer, "handshake cipher suite: %v\n", cipherSuite)
+			fmt.Fprintf(&buffer, "handshake protocol: %v\n", state.NegotiatedProtocol)
+			fmt.Fprintf(&buffer, "http: %s %s %s\n", r.Method, r.URL.RequestURI(), r.Proto)
 			if r.Host != "" {
-				log.Printf("http header: Host: %s", r.Host)
+				fmt.Fprintf(&buffer, "http header: Host: %s\n", r.Host)
 			}
 			keys := make([]string, 0, len(r.Header))
 			for k := range r.Header {
@@ -340,14 +362,15 @@ func main() {
 			for _, name := range keys {
 				headers := r.Header[name]
 				for _, value := range headers {
-					log.Printf("http header: %s: %s", name, value)
+					fmt.Fprintf(&buffer, "http header: %s: %s\n", name, value)
 				}
 			}
 			for name, values := range r.URL.Query() {
 				for _, value := range values {
-					log.Printf("http query: %s=%s", name, value)
+					fmt.Fprintf(&buffer, "http query: %s=%s\n", name, value)
 				}
 			}
+			log.Print(buffer.String())
 
 			w.WriteHeader(http.StatusOK)
 			w.Write([]byte(time.Now().Format("2006-01-02T15:04:05-0700")))
