@@ -105,7 +105,7 @@ choco install -y netfx-4.8-devpack
 choco install -y dotnet-sdk --version 6.0.300 # dotnet 6.0.5
 
 # install the go development tools.
-choco install -y go --version 1.18.2
+choco install -y go --version 1.18.3
 
 # install the java development tools.
 choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15

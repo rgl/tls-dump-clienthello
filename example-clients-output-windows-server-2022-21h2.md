@@ -6,7 +6,7 @@
 * [Curl 7.83.1](#curl-7831)
 * [Electron 19.0.1 (node/16.14.2 chrome/102.0.5005.61)](#electron-1901-node16142-chrome1020500561)
 * [Firefox 99.0.1](#firefox-9901)
-* [Go 1.18.2](#go-1182)
+* [Go 1.18.3](#go-1183)
 * [Java 11.0.15+10](#java-1101510)
 * [Node.js 16.15.0](#nodejs-16150)
 * [NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)](#nwjs-0650-node1800-chromium1020500561)
@@ -318,7 +318,7 @@ http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Geck
 http query: example-client=firefox/99.0.1
 ```
 
-## Go 1.18.2
+## Go 1.18.3
 
 With [example-clients/go](example-clients/go):
 
@@ -359,11 +359,11 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=go%2F1.18.2 HTTP/2.0
+http: GET /?example-client=go%2F1.18.3 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept-Encoding: gzip
 http header: User-Agent: Go-http-client/2.0
-http query: example-client=go/1.18.2
+http query: example-client=go/1.18.3
 ```
 
 ## Java 11.0.15+10
