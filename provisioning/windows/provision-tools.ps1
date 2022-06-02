@@ -112,7 +112,7 @@ choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15
 choco install -y gradle --version 6.6
 
 # install the node.js development tools.
-choco install -y nodejs-lts --version 16.15.0
+choco install -y nodejs-lts --version 16.15.1
 
 # install the rust development tools.
 choco install -y visualstudio2019-workload-vctools

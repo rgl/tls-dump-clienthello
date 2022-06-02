@@ -8,7 +8,7 @@
 * [Firefox 99.0.1](#firefox-9901)
 * [Go 1.18.3](#go-1183)
 * [Java 11.0.15+10](#java-1101510)
-* [Node.js 16.15.0](#nodejs-16150)
+* [Node.js 16.15.1](#nodejs-16151)
 * [NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)](#nwjs-0650-node1800-chromium1020500561)
 * [Rust 1.60.0](#rust-1600)
 
@@ -451,7 +451,7 @@ http header: User-Agent: Java/11.0.15
 http query: example-client=java/11.0.15+10
 ```
 
-## Node.js 16.15.0
+## Node.js 16.15.1
 
 With [example-clients/nodejs](example-clients/nodejs).
 
@@ -530,13 +530,13 @@ client point: ansiX962_compressed_prime (1)
 client point: ansiX962_compressed_char2 (2)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=nodejs%2F16.15.0 HTTP/1.1
+http: GET /?example-client=nodejs%2F16.15.1 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: */*
 http header: Accept-Encoding: gzip,deflate,br
 http header: Connection: close
 http header: User-Agent: node-fetch
-http query: example-client=nodejs/16.15.0
+http query: example-client=nodejs/16.15.1
 ```
 
 ## NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)
