@@ -99,21 +99,28 @@ EOF
 '@
 
 # install the .net framework development tools.
+# see https://community.chocolatey.org/packages/netfx-4.8-devpack
 choco install -y netfx-4.8-devpack
 
 # install the .net development tools.
+# see https://community.chocolatey.org/packages/dotnet-sdk
 choco install -y dotnet-sdk --version 6.0.300 # dotnet 6.0.5
 
 # install the go development tools.
+# see https://community.chocolatey.org/packages/go
 choco install -y go --version 1.18.3
 
 # install the java development tools.
+# see https://community.chocolatey.org/packages/temurin11
+# see https://community.chocolatey.org/packages/gradle
 choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15
 choco install -y gradle --version 6.6
 
 # install the node.js development tools.
+# see https://community.chocolatey.org/packages/nodejs-lts
 choco install -y nodejs-lts --version 16.15.1
 
 # install the rust development tools.
+# see https://community.chocolatey.org/packages/rust-ms
 choco install -y visualstudio2019-workload-vctools
 choco install -y rust-ms --version 1.61.0
