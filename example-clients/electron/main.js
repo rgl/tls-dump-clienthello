@@ -13,7 +13,7 @@ async function createWindow() {
   //mainWindow.webContents.openDevTools();
 
   const qs = new URLSearchParams({
-    'example-client': `electron/${process.versions.electron} (node/${process.versions.node} chrome=${process.versions.chrome})`,
+    'example-client': `electron/${process.versions.electron} (node/${process.versions.node} chrome/${process.versions.chrome})`,
   });
 
   await mainWindow.loadURL(`https://example.com:8888?${qs}`);

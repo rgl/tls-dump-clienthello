@@ -4,7 +4,7 @@
 * [.NET Framework 4.8.3928.0](#net-framework-4839280)
 * [Chrome 102.0.5005.63](#chrome-1020500563)
 * [Curl 7.83.1](#curl-7831)
-* [Electron 19.0.1 (node/16.14.2 chrome=102.0.5005.61)](#electron-1901-node16142-chrome1020500561)
+* [Electron 19.0.1 (node/16.14.2 chrome/102.0.5005.61)](#electron-1901-node16142-chrome1020500561)
 * [Firefox 99.0.1](#firefox-9901)
 * [Go 1.18.2](#go-1182)
 * [Java 11.0.15+10](#java-1101510)
@@ -216,7 +216,7 @@ http header: User-Agent: curl/7.83.1
 http query: example-client=curl/7.83.1
 ```
 
-## Electron 19.0.1 (node/16.14.2 chrome=102.0.5005.61)
+## Electron 19.0.1 (node/16.14.2 chrome/102.0.5005.61)
 
 With [example-clients/electron](example-clients/electron).
 
@@ -251,7 +251,7 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=electron%2F19.0.1+%28node%2F16.14.2+chrome%3D102.0.5005.61%29 HTTP/2.0
+http: GET /?example-client=electron%2F19.0.1+%28node%2F16.14.2+chrome%2F102.0.5005.61%29 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
@@ -262,7 +262,7 @@ http header: Sec-Fetch-Site: none
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
 http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/102.0.5005.61 Electron/19.0.1 Safari/537.36
-http query: example-client=electron/19.0.1 (node/16.14.2 chrome=102.0.5005.61)
+http query: example-client=electron/19.0.1 (node/16.14.2 chrome/102.0.5005.61)
 ```
 
 ## Firefox 99.0.1
