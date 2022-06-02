@@ -116,4 +116,4 @@ choco install -y nodejs-lts --version 16.15.1
 
 # install the rust development tools.
 choco install -y visualstudio2019-workload-vctools
-choco install -y rust-ms --version 1.60.0
+choco install -y rust-ms --version 1.61.0

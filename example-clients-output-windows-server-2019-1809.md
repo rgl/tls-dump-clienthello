@@ -10,7 +10,7 @@
 * [Java 11.0.15+10](#java-1101510)
 * [Node.js 16.15.1](#nodejs-16151)
 * [NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)](#nwjs-0650-node1800-chromium1020500561)
-* [Rust 1.60.0](#rust-1600)
+* [Rust 1.61.0](#rust-1610)
 
 ## .NET 6.0.5
 
@@ -591,7 +591,7 @@ http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 http query: example-client=nwjs/0.65.0 (node/18.0.0 chromium/102.0.5005.61)
 ```
 
-## Rust 1.60.0
+## Rust 1.61.0
 
 With [example-clients/rust](example-clients/rust).
 
@@ -617,10 +617,10 @@ client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=rust%2F1.60.0 HTTP/1.1
+http: GET /?example-client=rust%2F1.61.0 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: */*
 http header: Accept-Encoding: gzip
 http header: User-Agent: ureq/2.4.0
-http query: example-client=rust/1.60.0
+http query: example-client=rust/1.61.0
 ```
