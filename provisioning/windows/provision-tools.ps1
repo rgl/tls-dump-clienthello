@@ -124,3 +124,21 @@ choco install -y nodejs-lts --version 16.15.1
 # see https://community.chocolatey.org/packages/rust-ms
 choco install -y visualstudio2019-workload-vctools
 choco install -y rust-ms --version 1.61.0
+
+# install the erlang development tools.
+# see https://community.chocolatey.org/packages/erlang
+# see https://community.chocolatey.org/packages/rebar3
+# see https://github.com/ElixirWin/ChocolateyPackages/pull/62
+# see https://github.com/rgl/ErlangChocolateyPackages/tree/rgl
+$url = 'https://github.com/rgl/ErlangChocolateyPackages/archive/refs/heads/rgl.zip'
+$path = "$env:TEMP\ErlangChocolateyPackages"
+$zipPath = "$path.zip"
+(New-Object Net.WebClient).DownloadFile($url, $zipPath)
+Expand-Archive -Path $zipPath -DestinationPath $path
+Push-Location "$path\ErlangChocolateyPackages-rgl\Erlang"
+choco pack
+choco install -y erlang --source $PWD --version 25.0
+Set-Location ..\Rebar
+choco pack
+choco install -y rebar3 --source $PWD --version 3.18.0
+Pop-Location

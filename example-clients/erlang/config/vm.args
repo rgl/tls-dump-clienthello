@@ -1,0 +1,8 @@
+-noshell
+
+-sname example
+
+-setcookie example_cookie
+
++K true
++A30

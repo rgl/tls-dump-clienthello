@@ -14,6 +14,7 @@ Vagrant.configure('2') do |config|
       config.vm.box = "windows-#{version}-amd64"
       config.vm.synced_folder 'example-clients', '/tmp/example-clients', type: 'rsync', rsync__exclude: [
         '.gradle/',
+        '_build/',
         'node_modules/',
         'build/',
         'bin/',

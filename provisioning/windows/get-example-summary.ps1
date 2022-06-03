@@ -38,6 +38,7 @@ function Write-Summary($lines) {
         'dotnet'            { ".NET $version" }
         'dotnetframework'   { ".NET Framework $version" }
         'electron'          { "Electron $version" }
+        'erlang'            { "Erlang $version" }
         'firefox'           { "Firefox $version" }
         'go'                { "Go $version" }
         'java'              { "Java $version" }

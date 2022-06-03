@@ -5,6 +5,7 @@
 * [Chrome 102.0.5005.63](#chrome-1020500563)
 * [Curl 7.83.1](#curl-7831)
 * [Electron 19.0.1 (node/16.14.2 chrome/102.0.5005.61)](#electron-1901-node16142-chrome1020500561)
+* [Erlang 25](#erlang-25)
 * [Firefox 99.0.1](#firefox-9901)
 * [Go 1.18.3](#go-1183)
 * [Java 11.0.15+10](#java-1101510)
@@ -263,6 +264,80 @@ http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
 http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/102.0.5005.61 Electron/19.0.1 Safari/537.36
 http query: example-client=electron/19.0.1 (node/16.14.2 chrome/102.0.5005.61)
+```
+
+## Erlang 25
+
+With [example-clients/erlang](example-clients/erlang).
+
+Outputs:
+
+```
+client SNI: example.com
+client version: TLSv1.3
+client version: TLSv1.2
+client cipher suite: TLS_EMPTY_RENEGOTIATION_INFO_SCSV (0x00ff)
+client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
+client cipher suite: TLS_AES_128_CCM_SHA256 (0x1304)
+client cipher suite: TLS_AES_128_CCM_8_SHA256 (0x1305)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CCM (0xc0ad)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CCM_8 (0xc0af)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 (0xc024)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (0xc028)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CCM (0xc0ac)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CCM_8 (0xc0ae)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02e)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384 (0xc032)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384 (0xc026)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384 (0xc02a)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02d)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256 (0xc031)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 (0xc023)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (0xc027)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256 (0xc025)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256 (0xc029)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 (0x009f)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_GCM_SHA384 (0x00a3)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA256 (0x006b)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 (0x006a)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 (0x009e)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_GCM_SHA256 (0x00a2)
+client cipher suite: TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xccaa)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA256 (0x0067)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 (0x0040)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA (0xc005)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_256_CBC_SHA (0xc00f)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
+client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
+client cipher suite: TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA (0xc004)
+client cipher suite: TLS_ECDH_RSA_WITH_AES_128_CBC_SHA (0xc00e)
+client cipher suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (0x0039)
+client cipher suite: TLS_DHE_DSS_WITH_AES_256_CBC_SHA (0x0038)
+client cipher suite: TLS_DHE_RSA_WITH_AES_128_CBC_SHA (0x0033)
+client cipher suite: TLS_DHE_DSS_WITH_AES_128_CBC_SHA (0x0032)
+client curve: x25519 (29)
+client curve: x448 (30)
+client curve: secp256r1 (23)
+client curve: secp384r1 (24)
+client point: uncompressed (0)
+handshake version: TLSv1.3
+handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+http: GET /?example-client=erlang%2F25 HTTP/1.1
+http header: Host: example.com:8888
+http header: Connection: keep-alive
+http header: Content-Length: 0
+http header: Te: 
+http query: example-client=erlang/25
 ```
 
 ## Firefox 99.0.1
