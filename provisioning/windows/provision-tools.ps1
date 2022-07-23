@@ -108,7 +108,7 @@ choco install -y dotnet-sdk --version 6.0.300 # dotnet 6.0.5
 
 # install the go development tools.
 # see https://community.chocolatey.org/packages/go
-choco install -y go --version 1.18.3
+choco install -y go --version 1.18.4
 
 # install the java development tools.
 # see https://community.chocolatey.org/packages/temurin11
