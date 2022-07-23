@@ -1,19 +1,19 @@
 # Example Windows Server 2022 (21H2) outputs
 
-* [.NET 6.0.5](#net-605)
-* [.NET Framework 4.8.4510.0](#net-framework-4845100)
-* [Chrome 102.0.5005.63](#chrome-1020500563)
-* [Curl 7.83.1](#curl-7831)
-* [Electron 19.0.1 (node/16.14.2 chrome/102.0.5005.61)](#electron-1901-node16142-chrome1020500561)
+* [.NET 6.0.7](#net-607)
+* [.NET Framework 4.8.4515.0](#net-framework-4845150)
+* [Chrome 103.0.5060.134](#chrome-10305060134)
+* [Curl 7.84.0](#curl-7840)
+* [Electron 19.0.9 (node/16.14.2 chrome/102.0.5005.167)](#electron-1909-node16142-chrome10205005167)
 * [Erlang 25](#erlang-25)
-* [Firefox 99.0.1](#firefox-9901)
-* [Go 1.18.3](#go-1183)
+* [Firefox 102.0](#firefox-1020)
+* [Go 1.18.4](#go-1184)
 * [Java 11.0.15+10](#java-1101510)
-* [Node.js 16.15.1](#nodejs-16151)
-* [NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)](#nwjs-0650-node1800-chromium1020500561)
-* [Rust 1.61.0](#rust-1610)
+* [Node.js 16.16.0](#nodejs-16160)
+* [NW.js 0.66.1 (node/18.5.0 chromium/103.0.5060.114)](#nwjs-0661-node1850-chromium10305060114)
+* [Rust 1.62.0](#rust-1620)
 
-## .NET 6.0.5
+## .NET 6.0.7
 
 With [example-clients/dotnet](example-clients/dotnet):
 
@@ -56,12 +56,12 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_AES_128_GCM_SHA256
-http: GET /?example-client=dotnet%2F6.0.5 HTTP/1.1
+http: GET /?example-client=dotnet%2F6.0.7 HTTP/1.1
 http header: Host: example.com:8888
-http query: example-client=dotnet/6.0.5
+http query: example-client=dotnet/6.0.7
 ```
 
-## .NET Framework 4.8.4510.0
+## .NET Framework 4.8.4515.0
 
 With [example-clients/dotnetframework](example-clients/dotnetframework):
 
@@ -104,13 +104,13 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_AES_128_GCM_SHA256
-http: GET /?example-client=dotnetframework%2F4.8.4510.0 HTTP/1.1
+http: GET /?example-client=dotnetframework%2F4.8.4515.0 HTTP/1.1
 http header: Host: example.com:8888
 http header: Connection: Keep-Alive
-http query: example-client=dotnetframework/4.8.4510.0
+http query: example-client=dotnetframework/4.8.4515.0
 ```
 
-## Chrome 102.0.5005.63
+## Chrome 103.0.5060.134
 
 With [example-clients/browser](example-clients/browser).
 
@@ -145,7 +145,7 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=chrome%2F102.0.5005.63 HTTP/2.0
+http: GET /?example-client=chrome%2F103.0.5060.134 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
@@ -154,11 +154,11 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: none
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/102.0.5005.63 Safari/537.36
-http query: example-client=chrome/102.0.5005.63
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/103.0.5060.134 Safari/537.36
+http query: example-client=chrome/103.0.5060.134
 ```
 
-## Curl 7.83.1
+## Curl 7.84.0
 
 With [example-clients/curl](example-clients/curl).
 
@@ -212,14 +212,14 @@ client point: ansiX962_compressed_char2 (2)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=curl%2F7.83.1 HTTP/2.0
+http: GET /?example-client=curl%2F7.84.0 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: */*
-http header: User-Agent: curl/7.83.1
-http query: example-client=curl/7.83.1
+http header: User-Agent: curl/7.84.0
+http query: example-client=curl/7.84.0
 ```
 
-## Electron 19.0.1 (node/16.14.2 chrome/102.0.5005.61)
+## Electron 19.0.9 (node/16.14.2 chrome/102.0.5005.167)
 
 With [example-clients/electron](example-clients/electron).
 
@@ -254,7 +254,7 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=electron%2F19.0.1+%28node%2F16.14.2+chrome%2F102.0.5005.61%29 HTTP/2.0
+http: GET /?example-client=electron%2F19.0.9+%28node%2F16.14.2+chrome%2F102.0.5005.167%29 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
@@ -264,8 +264,8 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: none
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/102.0.5005.61 Electron/19.0.1 Safari/537.36
-http query: example-client=electron/19.0.1 (node/16.14.2 chrome/102.0.5005.61)
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/102.0.5005.167 Electron/19.0.9 Safari/537.36
+http query: example-client=electron/19.0.9 (node/16.14.2 chrome/102.0.5005.167)
 ```
 
 ## Erlang 25
@@ -342,7 +342,7 @@ http header: Te:
 http query: example-client=erlang/25
 ```
 
-## Firefox 99.0.1
+## Firefox 102.0
 
 With [example-clients/browser](example-clients/browser).
 
@@ -379,7 +379,7 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=firefox%2F99.0.1 HTTP/2.0
+http: GET /?example-client=firefox%2F102.0 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 http header: Accept-Encoding: gzip, deflate, br
@@ -389,11 +389,11 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: cross-site
 http header: Te: trailers
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:99.0) Gecko/20100101 Firefox/99.0
-http query: example-client=firefox/99.0.1
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0
+http query: example-client=firefox/102.0
 ```
 
-## Go 1.18.3
+## Go 1.18.4
 
 With [example-clients/go](example-clients/go):
 
@@ -434,11 +434,11 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=go%2F1.18.3 HTTP/2.0
+http: GET /?example-client=go%2F1.18.4 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept-Encoding: gzip
 http header: User-Agent: Go-http-client/2.0
-http query: example-client=go/1.18.3
+http query: example-client=go/1.18.4
 ```
 
 ## Java 11.0.15+10
@@ -528,7 +528,7 @@ http header: User-Agent: Java/11.0.15
 http query: example-client=java/11.0.15+10
 ```
 
-## Node.js 16.15.1
+## Node.js 16.16.0
 
 With [example-clients/nodejs](example-clients/nodejs).
 
@@ -607,16 +607,16 @@ client point: ansiX962_compressed_prime (1)
 client point: ansiX962_compressed_char2 (2)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=nodejs%2F16.15.1 HTTP/1.1
+http: GET /?example-client=nodejs%2F16.16.0 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: */*
-http header: Accept-Encoding: gzip,deflate,br
+http header: Accept-Encoding: gzip, deflate, br
 http header: Connection: close
 http header: User-Agent: node-fetch
-http query: example-client=nodejs/16.15.1
+http query: example-client=nodejs/16.16.0
 ```
 
-## NW.js 0.65.0 (node/18.0.0 chromium/102.0.5005.61)
+## NW.js 0.66.1 (node/18.5.0 chromium/103.0.5060.114)
 
 With [example-clients/nwjs](example-clients/nwjs).
 
@@ -651,12 +651,12 @@ client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
 handshake protocol: h2
-http: GET /?example-client=nwjs%2F0.65.0+%28node%2F18.0.0+chromium%2F102.0.5005.61%29 HTTP/2.0
+http: GET /?example-client=nwjs%2F0.66.1+%28node%2F18.5.0+chromium%2F103.0.5060.114%29 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
 http header: Accept-Language: en-US,en;q=0.9
-http header: Sec-Ch-Ua: "-Not.A/Brand";v="8", "Chromium";v="102"
+http header: Sec-Ch-Ua: "Chromium";v="103", ".Not/A)Brand";v="99"
 http header: Sec-Ch-Ua-Mobile: ?0
 http header: Sec-Ch-Ua-Platform: "Windows"
 http header: Sec-Fetch-Dest: document
@@ -664,11 +664,11 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: cross-site
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.9999.0 Safari/537.36
-http query: example-client=nwjs/0.65.0 (node/18.0.0 chromium/102.0.5005.61)
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
+http query: example-client=nwjs/0.66.1 (node/18.5.0 chromium/103.0.5060.114)
 ```
 
-## Rust 1.61.0
+## Rust 1.62.0
 
 With [example-clients/rust](example-clients/rust).
 
@@ -694,10 +694,10 @@ client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
 handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=rust%2F1.61.0 HTTP/1.1
+http: GET /?example-client=rust%2F1.62.0 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: */*
 http header: Accept-Encoding: gzip
-http header: User-Agent: ureq/2.4.0
-http query: example-client=rust/1.61.0
+http header: User-Agent: ureq/2.5.0
+http query: example-client=rust/1.62.0
 ```
