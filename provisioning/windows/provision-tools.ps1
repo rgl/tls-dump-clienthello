@@ -123,7 +123,7 @@ choco install -y nodejs-lts --version 16.16.0
 # install the rust development tools.
 # see https://community.chocolatey.org/packages/rust-ms
 choco install -y visualstudio2019-workload-vctools
-choco install -y rust-ms --version 1.61.0
+choco install -y rust-ms --version 1.62.0
 
 # install the erlang development tools.
 # see https://community.chocolatey.org/packages/erlang
