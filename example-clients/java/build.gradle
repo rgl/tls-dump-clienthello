@@ -1,10 +1,10 @@
-// see https://docs.gradle.org/6.6/userguide/java_plugin.html
-// see https://docs.gradle.org/6.6/userguide/application_plugin.html
+// see https://docs.gradle.org/7.4/userguide/java_plugin.html
+// see https://docs.gradle.org/7.4/userguide/application_plugin.html
 // see http://imperceptiblethoughts.com/shadow/
 // see https://github.com/johnrengelman/shadow
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '6.1.0'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
 }
 
 apply plugin: 'application'
@@ -18,19 +18,19 @@ jar {
     manifest {
         attributes(
             'Implementation-Title': 'Java TLS client example',
-            'Implementation-Version': version,
+            'Implementation-Version': archiveVersion,
             'Main-Class': mainClassName
         )
     }
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
     // see https://logging.apache.org/log4j/2.x/maven-artifacts.html#Using_Log4j_in_your_Gradle_build
     // see https://logging.apache.org/log4j/2.x/runtime-dependencies.html
-    compile 'org.apache.logging.log4j:log4j-api:2.17.2'
-    compile 'org.apache.logging.log4j:log4j-core:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-api:2.18.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.18.0'
 }

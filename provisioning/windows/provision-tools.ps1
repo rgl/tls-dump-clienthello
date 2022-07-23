@@ -114,7 +114,7 @@ choco install -y go --version 1.18.4
 # see https://community.chocolatey.org/packages/temurin11
 # see https://community.chocolatey.org/packages/gradle
 choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15
-choco install -y gradle --version 6.6
+choco install -y gradle --version 7.4.2
 
 # install the node.js development tools.
 # see https://community.chocolatey.org/packages/nodejs-lts
