@@ -104,7 +104,7 @@ choco install -y netfx-4.8-devpack
 
 # install the .net development tools.
 # see https://community.chocolatey.org/packages/dotnet-sdk
-choco install -y dotnet-sdk --version 6.0.300 # dotnet 6.0.5
+choco install -y dotnet-sdk --version 6.0.302 # dotnet 6.0.7
 
 # install the go development tools.
 # see https://community.chocolatey.org/packages/go
