@@ -11,6 +11,6 @@
         "url": "https://github.com/rgl/tls-dump-clienthello.git"
     },
     "dependencies": {
-        "node-fetch": "^3.2.4"
+        "node-fetch": "^3.2.9"
     }
 }
