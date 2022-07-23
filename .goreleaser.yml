@@ -19,6 +19,23 @@ builds:
       - -X main.commit={{ .Commit }}
       - -X main.date={{ .CommitDate }}
     mod_timestamp: '{{ .CommitTimestamp }}'
+sboms:
+  - documents:
+      - "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}.bom.json"
+    artifacts: binary
+    cmd: cyclonedx-gomod
+    args:
+      - app
+      - -licenses
+      - -packages
+      - -json
+      - -output
+      - $document
+      - ../
+    env:
+      - GOARCH={{ .Arch }}
+      - GOOS={{ .Os }}
+      - CGO_ENABLED=0
 changelog:
   sort: asc
   filters:

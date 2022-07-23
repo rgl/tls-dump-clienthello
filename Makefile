@@ -2,6 +2,7 @@ SHELL = /bin/bash
 GOPATH := $(shell go env GOPATH | tr '\\' '/')
 GOEXE := $(shell go env GOEXE)
 GORELEASER := $(GOPATH)/bin/goreleaser$(GOEXE)
+CYCLONEDXGOMOD := $(GOPATH)/bin/cyclonedx-gomod$(GOEXE)
 EXTRA_SOURCE_FILES := \
 	tls-parameters-4.csv \
 	tls-parameters-8.csv \
@@ -13,13 +14,16 @@ all: build
 $(GORELEASER):
 	go install github.com/goreleaser/goreleaser@v1.9.2
 
+$(CYCLONEDXGOMOD):
+	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.2.0
+
 build: $(GORELEASER) $(EXTRA_SOURCE_FILES)
 	$(GORELEASER) build --skip-validate --rm-dist
 
-release-snapshot: $(GORELEASER) $(EXTRA_SOURCE_FILES)
+release-snapshot: $(GORELEASER) $(CYCLONEDXGOMOD) $(EXTRA_SOURCE_FILES)
 	$(GORELEASER) release --snapshot --skip-publish --rm-dist
 
-release: $(GORELEASER) $(EXTRA_SOURCE_FILES)
+release: $(GORELEASER) $(CYCLONEDXGOMOD) $(EXTRA_SOURCE_FILES)
 	$(GORELEASER) release --rm-dist
 
 clean:
