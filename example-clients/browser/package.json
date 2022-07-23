@@ -11,6 +11,6 @@
         "url": "https://github.com/rgl/tls-dump-clienthello.git"
     },
     "dependencies": {
-        "playwright": "^1.22.2"
+        "playwright": "^1.24.0"
     }
 }
