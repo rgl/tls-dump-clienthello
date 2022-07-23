@@ -118,7 +118,7 @@ choco install -y gradle --version 7.4.2
 
 # install the node.js development tools.
 # see https://community.chocolatey.org/packages/nodejs-lts
-choco install -y nodejs-lts --version 16.15.1
+choco install -y nodejs-lts --version 16.16.0
 
 # install the rust development tools.
 # see https://community.chocolatey.org/packages/rust-ms
