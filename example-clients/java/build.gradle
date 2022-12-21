@@ -1,5 +1,5 @@
-// see https://docs.gradle.org/7.4/userguide/java_plugin.html
-// see https://docs.gradle.org/7.4/userguide/application_plugin.html
+// see https://docs.gradle.org/7.5/userguide/java_plugin.html
+// see https://docs.gradle.org/7.5/userguide/application_plugin.html
 // see http://imperceptiblethoughts.com/shadow/
 // see https://github.com/johnrengelman/shadow
 
@@ -31,6 +31,6 @@ repositories {
 dependencies {
     // see https://logging.apache.org/log4j/2.x/maven-artifacts.html#Using_Log4j_in_your_Gradle_build
     // see https://logging.apache.org/log4j/2.x/runtime-dependencies.html
-    implementation 'org.apache.logging.log4j:log4j-api:2.18.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.18.0'
+    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
 }

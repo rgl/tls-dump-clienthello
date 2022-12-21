@@ -12,10 +12,10 @@ EXTRA_SOURCE_FILES := \
 all: build
 
 $(GORELEASER):
-	go install github.com/goreleaser/goreleaser@v1.9.2
+	go install github.com/goreleaser/goreleaser@v1.13.1
 
 $(CYCLONEDXGOMOD):
-	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.2.0
+	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.3.0
 
 build: $(GORELEASER) $(EXTRA_SOURCE_FILES)
 	$(GORELEASER) build --skip-validate --rm-dist

@@ -7,6 +7,7 @@ function Get-WindowsVersion {
         19042 = @{Name='Windows 10';            Version='20H2'; ReleaseDate='October 20, 2020'}
         20348 = @{Name='Windows Server 2022';   Version='21H2'; ReleaseDate='August 18, 2021'}
         22000 = @{Name='Windows 11';            Version='21H2'; ReleaseDate='October 4, 2021'}
+        22621 = @{Name='Windows 11';            Version='22H2'; ReleaseDate='September 20, 2022'}
     }
     $currentVersionKey = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
     $build = [int]$currentVersionKey.CurrentBuildNumber

@@ -104,26 +104,26 @@ choco install -y netfx-4.8-devpack
 
 # install the .net development tools.
 # see https://community.chocolatey.org/packages/dotnet-sdk
-choco install -y dotnet-sdk --version 6.0.302 # dotnet 6.0.7
+choco install -y dotnet-sdk --version 6.0.404 # dotnet 6.0.12
 
 # install the go development tools.
 # see https://community.chocolatey.org/packages/go
-choco install -y go --version 1.18.4
+choco install -y go --version 1.19.4
 
 # install the java development tools.
 # see https://community.chocolatey.org/packages/temurin11
 # see https://community.chocolatey.org/packages/gradle
-choco install -y temurin11 --version 11.0.15.1000 # jdk 11.0.15
-choco install -y gradle --version 7.4.2
+choco install -y temurin11 --version 11.0.17.800 # jdk 11.0.17
+choco install -y gradle --version 7.5.1
 
 # install the node.js development tools.
 # see https://community.chocolatey.org/packages/nodejs-lts
-choco install -y nodejs-lts --version 16.16.0
+choco install -y nodejs-lts --version 18.12.1
 
 # install the rust development tools.
 # see https://community.chocolatey.org/packages/rust-ms
 choco install -y visualstudio2019-workload-vctools
-choco install -y rust-ms --version 1.62.0
+choco install -y rust-ms --version 1.66.0
 
 # install the erlang development tools.
 # see https://community.chocolatey.org/packages/erlang

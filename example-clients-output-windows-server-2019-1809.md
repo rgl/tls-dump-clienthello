@@ -1,19 +1,19 @@
 # Example Windows Server 2019 (1809) outputs
 
-* [.NET 6.0.7](#net-607)
+* [.NET 6.0.12](#net-6012)
 * [.NET Framework 4.8.4110.0](#net-framework-4841100)
-* [Chrome 103.0.5060.134](#chrome-10305060134)
-* [Curl 7.84.0](#curl-7840)
-* [Electron 19.0.9 (node/16.14.2 chrome/102.0.5005.167)](#electron-1909-node16142-chrome10205005167)
+* [Chrome 108.0.5359.125](#chrome-10805359125)
+* [Curl 7.86.0](#curl-7860)
+* [Electron 22.0.0 (node/16.17.1 chrome/108.0.5359.62)](#electron-2200-node16171-chrome1080535962)
 * [Erlang 25](#erlang-25)
-* [Firefox 102.0](#firefox-1020)
-* [Go 1.18.4](#go-1184)
-* [Java 11.0.15+10](#java-1101510)
-* [Node.js 16.16.0](#nodejs-16160)
-* [NW.js 0.66.1 (node/18.5.0 chromium/103.0.5060.114)](#nwjs-0661-node1850-chromium10305060114)
-* [Rust 1.62.0](#rust-1620)
+* [Firefox 107.0](#firefox-1070)
+* [Go 1.19.4](#go-1194)
+* [Java 11.0.17+8](#java-110178)
+* [Node.js 18.12.1](#nodejs-18121)
+* [NW.js 0.71.0 (node/19.0.0 chromium/108.0.5359.95)](#nwjs-0710-node1900-chromium1080535995)
+* [Rust 1.66.0](#rust-1660)
 
-## .NET 6.0.7
+## .NET 6.0.12
 
 With [example-clients/dotnet](example-clients/dotnet):
 
@@ -55,9 +55,9 @@ client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.2
 handshake cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-http: GET /?example-client=dotnet%2F6.0.7 HTTP/1.1
+http: GET /?example-client=dotnet%2F6.0.12 HTTP/1.1
 http header: Host: example.com:8888
-http query: example-client=dotnet/6.0.7
+http query: example-client=dotnet/6.0.12
 ```
 
 ## .NET Framework 4.8.4110.0
@@ -108,7 +108,7 @@ http header: Connection: Keep-Alive
 http query: example-client=dotnetframework/4.8.4110.0
 ```
 
-## Chrome 103.0.5060.134
+## Chrome 108.0.5359.125
 
 With [example-clients/browser](example-clients/browser).
 
@@ -120,15 +120,15 @@ client version: 0xfafa
 client version: TLSv1.3
 client version: TLSv1.2
 client cipher suite: Reserved (0x6a6a)
-client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
 client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
-client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
 client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
@@ -141,9 +141,9 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol: h2
-http: GET /?example-client=chrome%2F103.0.5060.134 HTTP/2.0
+http: GET /?example-client=chrome%2F108.0.5359.125 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
@@ -152,11 +152,11 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: none
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/103.0.5060.134 Safari/537.36
-http query: example-client=chrome/103.0.5060.134
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/108.0.5359.125 Safari/537.36
+http query: example-client=chrome/108.0.5359.125
 ```
 
-## Curl 7.84.0
+## Curl 7.86.0
 
 With [example-clients/curl](example-clients/curl).
 
@@ -208,16 +208,16 @@ client point: uncompressed (0)
 client point: ansiX962_compressed_prime (1)
 client point: ansiX962_compressed_char2 (2)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol: h2
-http: GET /?example-client=curl%2F7.84.0 HTTP/2.0
+http: GET /?example-client=curl%2f7.86.0 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: */*
-http header: User-Agent: curl/7.84.0
-http query: example-client=curl/7.84.0
+http header: User-Agent: curl/7.86.0
+http query: example-client=curl/7.86.0
 ```
 
-## Electron 19.0.9 (node/16.14.2 chrome/102.0.5005.167)
+## Electron 22.0.0 (node/16.17.1 chrome/108.0.5359.62)
 
 With [example-clients/electron](example-clients/electron).
 
@@ -229,15 +229,15 @@ client version: 0x9a9a
 client version: TLSv1.3
 client version: TLSv1.2
 client cipher suite: Reserved (0x7a7a)
-client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
 client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
-client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
 client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
@@ -250,9 +250,9 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol: h2
-http: GET /?example-client=electron%2F19.0.9+%28node%2F16.14.2+chrome%2F102.0.5005.167%29 HTTP/2.0
+http: GET /?example-client=electron%2F22.0.0+%28node%2F16.17.1+chrome%2F108.0.5359.62%29 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
@@ -262,8 +262,8 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: none
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/102.0.5005.167 Electron/19.0.9 Safari/537.36
-http query: example-client=electron/19.0.9 (node/16.14.2 chrome/102.0.5005.167)
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) example-electron-client/1.0.0 Chrome/108.0.5359.62 Electron/22.0.0 Safari/537.36
+http query: example-client=electron/22.0.0 (node/16.17.1 chrome/108.0.5359.62)
 ```
 
 ## Erlang 25
@@ -331,7 +331,7 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 http: GET /?example-client=erlang%2F25 HTTP/1.1
 http header: Host: example.com:8888
 http header: Connection: keep-alive
@@ -340,7 +340,7 @@ http header: Te:
 http query: example-client=erlang/25
 ```
 
-## Firefox 102.0
+## Firefox 107.0
 
 With [example-clients/browser](example-clients/browser).
 
@@ -375,9 +375,9 @@ client curve: ffdhe2048 (256)
 client curve: ffdhe3072 (257)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol: h2
-http: GET /?example-client=firefox%2F102.0 HTTP/2.0
+http: GET /?example-client=firefox%2F107.0 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
 http header: Accept-Encoding: gzip, deflate, br
@@ -387,11 +387,11 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: cross-site
 http header: Te: trailers
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101 Firefox/102.0
-http query: example-client=firefox/102.0
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:107.0) Gecko/20100101 Firefox/107.0
+http query: example-client=firefox/107.0
 ```
 
-## Go 1.18.4
+## Go 1.19.4
 
 With [example-clients/go](example-clients/go):
 
@@ -405,12 +405,12 @@ Outputs:
 client SNI: example.com
 client version: TLSv1.3
 client version: TLSv1.2
-client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
-client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA (0xc009)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA (0xc00a)
@@ -421,25 +421,25 @@ client cipher suite: TLS_RSA_WITH_AES_128_CBC_SHA (0x002f)
 client cipher suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
 client cipher suite: TLS_ECDHE_RSA_WITH_3DES_EDE_CBC_SHA (0xc012)
 client cipher suite: TLS_RSA_WITH_3DES_EDE_CBC_SHA (0x000a)
-client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
 client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client curve: x25519 (29)
 client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client curve: secp521r1 (25)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol: h2
-http: GET /?example-client=go%2F1.18.4 HTTP/2.0
+http: GET /?example-client=go%2F1.19.4 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept-Encoding: gzip
 http header: User-Agent: Go-http-client/2.0
-http query: example-client=go/1.18.4
+http query: example-client=go/1.19.4
 ```
 
-## Java 11.0.15+10
+## Java 11.0.17+8
 
 With [example-clients/java](example-clients/java):
 
@@ -517,16 +517,16 @@ client curve: ffdhe6144 (259)
 client curve: ffdhe8192 (260)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=java%2F11.0.15%2B10 HTTP/1.1
+handshake cipher suite: TLS_AES_128_GCM_SHA256
+http: GET /?example-client=java%2F11.0.17%2B8 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2
 http header: Connection: keep-alive
-http header: User-Agent: Java/11.0.15
-http query: example-client=java/11.0.15+10
+http header: User-Agent: Java/11.0.17
+http query: example-client=java/11.0.17+8
 ```
 
-## Node.js 16.16.0
+## Node.js 18.12.1
 
 With [example-clients/nodejs](example-clients/nodejs).
 
@@ -600,21 +600,26 @@ client curve: secp256r1 (23)
 client curve: x448 (30)
 client curve: secp521r1 (25)
 client curve: secp384r1 (24)
+client curve: ffdhe2048 (256)
+client curve: ffdhe3072 (257)
+client curve: ffdhe4096 (258)
+client curve: ffdhe6144 (259)
+client curve: ffdhe8192 (260)
 client point: uncompressed (0)
 client point: ansiX962_compressed_prime (1)
 client point: ansiX962_compressed_char2 (2)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=nodejs%2F16.16.0 HTTP/1.1
+handshake cipher suite: TLS_AES_128_GCM_SHA256
+http: GET /?example-client=nodejs%2F18.12.1 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: */*
 http header: Accept-Encoding: gzip, deflate, br
 http header: Connection: close
 http header: User-Agent: node-fetch
-http query: example-client=nodejs/16.16.0
+http query: example-client=nodejs/18.12.1
 ```
 
-## NW.js 0.66.1 (node/18.5.0 chromium/103.0.5060.114)
+## NW.js 0.71.0 (node/19.0.0 chromium/108.0.5359.95)
 
 With [example-clients/nwjs](example-clients/nwjs).
 
@@ -626,15 +631,15 @@ client version: 0xbaba
 client version: TLSv1.3
 client version: TLSv1.2
 client cipher suite: Reserved (0x3a3a)
-client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_AES_128_GCM_SHA256 (0x1301)
 client cipher suite: TLS_AES_256_GCM_SHA384 (0x1302)
-client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
-client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
+client cipher suite: TLS_CHACHA20_POLY1305_SHA256 (0x1303)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 (0xc02b)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
 client cipher suite: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 (0xc02c)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (0xc030)
+client cipher suite: TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca9)
+client cipher suite: TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256 (0xcca8)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA (0xc013)
 client cipher suite: TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA (0xc014)
 client cipher suite: TLS_RSA_WITH_AES_128_GCM_SHA256 (0x009c)
@@ -647,14 +652,14 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
+handshake cipher suite: TLS_AES_128_GCM_SHA256
 handshake protocol: h2
-http: GET /?example-client=nwjs%2F0.66.1+%28node%2F18.5.0+chromium%2F103.0.5060.114%29 HTTP/2.0
+http: GET /?example-client=nwjs%2F0.71.0+%28node%2F19.0.0+chromium%2F108.0.5359.95%29 HTTP/2.0
 http header: Host: example.com:8888
 http header: Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
 http header: Accept-Encoding: gzip, deflate, br
 http header: Accept-Language: en-US,en;q=0.9
-http header: Sec-Ch-Ua: "Chromium";v="103", ".Not/A)Brand";v="99"
+http header: Sec-Ch-Ua: "Not?A_Brand";v="8", "Chromium";v="108"
 http header: Sec-Ch-Ua-Mobile: ?0
 http header: Sec-Ch-Ua-Platform: "Windows"
 http header: Sec-Fetch-Dest: document
@@ -662,11 +667,11 @@ http header: Sec-Fetch-Mode: navigate
 http header: Sec-Fetch-Site: cross-site
 http header: Sec-Fetch-User: ?1
 http header: Upgrade-Insecure-Requests: 1
-http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36
-http query: example-client=nwjs/0.66.1 (node/18.5.0 chromium/103.0.5060.114)
+http header: User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+http query: example-client=nwjs/0.71.0 (node/19.0.0 chromium/108.0.5359.95)
 ```
 
-## Rust 1.62.0
+## Rust 1.66.0
 
 With [example-clients/rust](example-clients/rust).
 
@@ -691,11 +696,11 @@ client curve: secp256r1 (23)
 client curve: secp384r1 (24)
 client point: uncompressed (0)
 handshake version: TLSv1.3
-handshake cipher suite: TLS_CHACHA20_POLY1305_SHA256
-http: GET /?example-client=rust%2F1.62.0 HTTP/1.1
+handshake cipher suite: TLS_AES_128_GCM_SHA256
+http: GET /?example-client=rust%2F1.66.0 HTTP/1.1
 http header: Host: example.com:8888
 http header: Accept: */*
 http header: Accept-Encoding: gzip
 http header: User-Agent: ureq/2.5.0
-http query: example-client=rust/1.62.0
+http query: example-client=rust/1.66.0
 ```

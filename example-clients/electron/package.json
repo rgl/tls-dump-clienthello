@@ -10,6 +10,6 @@
         "url": "https://github.com/rgl/tls-dump-clienthello.git"
     },
     "devDependencies": {
-        "electron": "^19.0.9"
+        "electron": "^22.0.0"
     }
 }

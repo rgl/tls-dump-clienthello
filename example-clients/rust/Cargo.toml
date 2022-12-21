@@ -5,9 +5,9 @@ edition = "2021"
 build = "build.rs"
 
 [dependencies]
-rustls = "0.20.6"
+rustls = "0.20.7"
 rustls-native-certs = "0.6.2"
 ureq = "2.5.0"
 
 [build-dependencies]
-built = "0.5.1"
+built = "0.5.2"
