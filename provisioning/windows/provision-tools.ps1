@@ -19,6 +19,11 @@ choco install -y meld
 Import-Module C:\ProgramData\chocolatey\helpers\chocolateyInstaller.psm1
 Update-SessionEnvironment
 
+# create the iis crypto desktop shortcut.
+Install-ChocolateyShortcut `
+    -ShortcutFilePath "$env:USERPROFILE\Desktop\IIS Crypto.lnk" `
+    -TargetPath "$env:ChocolateyInstall\lib\iiscrypto\tools\iiscrypto.exe"
+
 # configure git.
 # see http://stackoverflow.com/a/12492094/477532
 git config --global --add safe.directory "%(prefix)///$((Get-Item c:\vagrant).Target -replace 'UNC\\','' -replace '\\','/')/"
