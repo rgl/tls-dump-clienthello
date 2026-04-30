@@ -8,6 +8,7 @@ Vagrant.configure('2') do |config|
 
   [
     '2022',
+    '2025',
   ].each do |version|
     config.vm.define "windows-#{version}" do |config|
       config.vm.box = "windows-#{version}-uefi-amd64"

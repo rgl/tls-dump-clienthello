@@ -2,16 +2,24 @@ function Get-WindowsVersion {
     # see https://en.wikipedia.org/wiki/Windows_10_version_history
     # see https://en.wikipedia.org/wiki/Windows_11_version_history
     # see https://en.wikipedia.org/wiki/Microsoft_Windows_version_history
-    $builds = @{
-        17763 = @{Name='Windows Server 2019';   Version='1809'; ReleaseDate='November 13, 2018'}
-        19042 = @{Name='Windows 10';            Version='20H2'; ReleaseDate='October 20, 2020'}
-        20348 = @{Name='Windows Server 2022';   Version='21H2'; ReleaseDate='August 18, 2021'}
-        22000 = @{Name='Windows 11';            Version='21H2'; ReleaseDate='October 4, 2021'}
-        22621 = @{Name='Windows 11';            Version='22H2'; ReleaseDate='September 20, 2022'}
-    }
     $currentVersionKey = Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion'
+    $edition = if ($currentVersionKey.EditionID -like 'Server*') {
+        "server"
+    } else {
+        "client"
+    }
     $build = [int]$currentVersionKey.CurrentBuildNumber
-    [PSCustomObject]$builds[$build]
+    $builds = @{
+        server = @{
+            20348 = @{Name='Windows Server 2022';   Version='21H2'; ReleaseDate='August 18, 2021'}
+            26100 = @{Name='Windows Server 2025';   Version='24H2'; ReleaseDate='November 1, 2024'}
+        }
+        client = @{
+            22621 = @{Name='Windows 11';            Version='22H2'; ReleaseDate='September 20, 2022'}
+            26100 = @{Name='Windows 11';            Version='24H2'; ReleaseDate='October 1, 2024'}
+        }
+    }
+    [PSCustomObject]$builds[$edition][$build]
 }
 
 function Write-Summary($lines) {
