@@ -7,7 +7,6 @@ Vagrant.configure('2') do |config|
   end
 
   [
-    '2019',
     '2022',
   ].each do |version|
     config.vm.define "windows-#{version}" do |config|
@@ -24,10 +23,6 @@ Vagrant.configure('2') do |config|
         '*.zip']
       config.vm.provision :file, source: 'example.com-crt.pem', destination: '/tmp/'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-chocolatey.ps1'
-      if version == '2019'
-        config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-dotnet.ps1'
-        config.vm.provision :reload
-      end
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-common.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tools.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tls-dump-clienthello.ps1'

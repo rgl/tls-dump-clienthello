@@ -27,5 +27,4 @@ The example clients can also be executed in a Vagrant managed VM. See the [Vagra
 
 # Example clients output
 
-* [Windows Server 2019 (1809)](example-clients-output-windows-server-2019-1809.md)
 * [Windows Server 2022 (21H2)](example-clients-output-windows-server-2022-21h2.md)
