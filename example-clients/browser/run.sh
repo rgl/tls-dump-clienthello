@@ -8,7 +8,7 @@ set -euxo pipefail
 npm ci
 
 # set the node.js certificate trust store.
-export SSL_CERT_FILE='../../example.com-crt.pem'
+export SSL_CERT_FILE='../../example-ca-crt.pem'
 
 # execute the example clients.
 node --use-openssl-ca main.js

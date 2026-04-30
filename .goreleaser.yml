@@ -53,4 +53,4 @@ archives:
         format: zip
     files:
       - '*.csv'
-      - example.com-*.pem
+      - example-*.pem

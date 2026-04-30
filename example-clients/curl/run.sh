@@ -3,7 +3,7 @@ set -euxo pipefail
 
 curl_version="$(curl --version | awk '/^curl / {print $2}')"
 
-export CURL_CA_BUNDLE=../../example.com-crt.pem
+export CURL_CA_BUNDLE=../../example-ca-crt.pem
 
 curl \
     --get \

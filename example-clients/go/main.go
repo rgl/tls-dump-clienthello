@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	const exampleCAPath = "../../example.com-crt.pem"
+	const exampleCAPath = "../../example-ca-crt.pem"
 
 	exampleCA, err := ioutil.ReadFile(exampleCAPath)
 	if err != nil {

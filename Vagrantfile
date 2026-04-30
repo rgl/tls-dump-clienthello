@@ -21,7 +21,7 @@ Vagrant.configure('2') do |config|
         'target/',
         '*.jar',
         '*.zip']
-      config.vm.provision :file, source: 'example.com-crt.pem', destination: '/tmp/'
+      config.vm.provision :file, source: 'example-ca-crt.pem', destination: '/tmp/'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-chocolatey.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-common.ps1'
       config.vm.provision :shell, path: 'provisioning/windows/ps.ps1', args: 'provision-tools.ps1'

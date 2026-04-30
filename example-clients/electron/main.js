@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 
-// TODO somehow configure the certificate store to trust ../../example.com-crt.pem.
+// TODO somehow configure the certificate store to trust ../../example-ca-crt.pem.
 // see https://www.electronjs.org/docs/latest/api/command-line-switches
 app.commandLine.appendSwitch('ignore-certificate-errors');
 

@@ -56,6 +56,6 @@ Add-Content `
 
 # trust the example.com certificate.
 Import-Certificate `
-    -FilePath C:/vagrant/example.com-crt.pem `
+    -FilePath C:/vagrant/example-ca-crt.pem `
     -CertStoreLocation Cert:/LocalMachine/Root `
     | Out-Null
