@@ -8,4 +8,5 @@ npm ci
 # TODO do not ignore the certificate errors.
 ./node_modules/.bin/nw \
     --ignore-certificate-errors \
-    --enable-logging=stderr
+    --enable-logging=stderr \
+    .

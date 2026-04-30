@@ -8,24 +8,8 @@ trap {
     Exit 1
 }
 
-# define a function for easying the execution of bash scripts.
-$msys2BasePath = 'C:\tools\msys64'
-$bashPath = "$msys2BasePath\usr\bin\bash.exe"
-function Bash($script) {
-    $eap = $ErrorActionPreference
-    $ErrorActionPreference = 'Continue'
-    try {
-        # we also redirect the stderr to stdout because PowerShell
-        # oddly interleaves them.
-        # see https://www.gnu.org/software/bash/manual/bash.html#The-Set-Builtin
-        echo 'exec 2>&1;set -eu;export PATH="/usr/bin:$PATH";export HOME=$USERPROFILE;' $script | &$bashPath
-        if ($LASTEXITCODE) {
-            throw "bash execution failed with exit code $LASTEXITCODE"
-        }
-    } finally {
-        $ErrorActionPreference = $eap
-    }
-}
+# import the bash function.
+. c:/vagrant/provisioning/windows/bash.ps1
 
 # delete all the service logs.
 # NB this is required to produce a valid summary.

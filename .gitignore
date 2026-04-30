@@ -8,5 +8,6 @@ dist/
 build/
 bin/
 obj/
+tmp/
 *.jar
 *.zip

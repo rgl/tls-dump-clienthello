@@ -3,15 +3,15 @@ on: [push]
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
-      - name: Set up Go 1.19
-        uses: actions/setup-go@v3
+      - name: Setup Go
+        uses: actions/setup-go@v6
         with:
-          go-version: '1.19.4'
+          go-version: '1.26.2'
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -23,7 +23,7 @@ jobs:
             make release-snapshot
           fi
       - name: Archive
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: artifacts
           path: |

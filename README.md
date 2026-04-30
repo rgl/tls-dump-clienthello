@@ -1,10 +1,12 @@
-[![Build status](https://github.com/rgl/tls-dump-clienthello/workflows/Build/badge.svg)](https://github.com/rgl/tls-dump-clienthello/actions?query=workflow%3ABuild)
+# About
+
+[![Build](https://github.com/rgl/tls-dump-clienthello/actions/workflows/build.yml/badge.svg)](https://github.com/rgl/tls-dump-clienthello/actions/workflows/build.yml)
 
 this dumps the [TLS ClientHello message](https://tools.ietf.org/html/rfc5246#section-7.4.1.2) to stdout. this might be useful when testing your TLS client settings.
 
-# Usage
+## Usage
 
-Install [Go 1.19.4](https://go.dev/dl/).
+Install [Go 1.26.2](https://go.dev/dl/).
 
 Add `example.com` to your `hosts` file:
 
@@ -25,6 +27,6 @@ Open the [example-clients directory](example-clients) to see some example client
 
 The example clients can also be executed in a Vagrant managed VM. See the [Vagrantfile](Vagrantfile) (this requires the base boxes from [rgl/windows-vagrant](https://github.com/rgl/windows-vagrant)).
 
-# Example clients output
+## Example clients output
 
 * [Windows Server 2022 (21H2)](example-clients-output-windows-server-2022-21h2.md)

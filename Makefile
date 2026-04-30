@@ -9,22 +9,26 @@ EXTRA_SOURCE_FILES := \
 	tls-parameters-9.csv \
 	example.com-crt.pem
 
+# see https://github.com/goreleaser/goreleaser
+# renovate: datasource=github-releases depName=goreleaser/goreleaser extractVersion=^v?(?<version>2\..+)
+GORELEASER_VERSION := 2.15.4
+
 all: build
 
 $(GORELEASER):
-	go install github.com/goreleaser/goreleaser@v1.13.1
+	go install github.com/goreleaser/goreleaser/v2@v$(GORELEASER_VERSION)
 
 $(CYCLONEDXGOMOD):
-	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.3.0
+	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.10.0
 
 build: $(GORELEASER) $(EXTRA_SOURCE_FILES)
-	$(GORELEASER) build --skip-validate --rm-dist
+	$(GORELEASER) build --skip=validate --clean
 
 release-snapshot: $(GORELEASER) $(CYCLONEDXGOMOD) $(EXTRA_SOURCE_FILES)
-	$(GORELEASER) release --snapshot --skip-publish --rm-dist
+	$(GORELEASER) release --snapshot --skip=publish --clean
 
 release: $(GORELEASER) $(CYCLONEDXGOMOD) $(EXTRA_SOURCE_FILES)
-	$(GORELEASER) release --rm-dist
+	$(GORELEASER) release --clean
 
 clean:
 	rm -rf dist

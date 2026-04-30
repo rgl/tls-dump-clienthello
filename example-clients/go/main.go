@@ -4,7 +4,8 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
-	"io/ioutil"
+	"os"
+
 	"log"
 	"net/http"
 	"net/url"
@@ -15,7 +16,7 @@ import (
 func main() {
 	const exampleCAPath = "../../example-ca-crt.pem"
 
-	exampleCA, err := ioutil.ReadFile(exampleCAPath)
+	exampleCA, err := os.ReadFile(exampleCAPath)
 	if err != nil {
 		log.Fatalf("failed to read the example.com certificate from %s: %v", exampleCAPath, err)
 	}

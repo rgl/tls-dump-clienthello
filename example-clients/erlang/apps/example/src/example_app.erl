@@ -18,7 +18,7 @@ start(_StartType, _StartArgs) ->
     Url = io_lib:format("https://example.com:8888?~s", [uri_string:compose_query([{"example-client", ClientVersion}])]),
     {ok, {{_Version, 200, _ReasonPhrase}, _Headers, Body}} = httpc:request(get, {Url, []}, [], []),
     lager:info("tls-dump-clienthello response: ~s", [Body]),
-    % since this is an example application that is suppossed to terminate
+    % since this is an example application that is supposed to terminate
     % after calling the service, we do just that after 100 milliseconds.
     timer:apply_after(100, init, stop, []),
     example_sup:start_link().

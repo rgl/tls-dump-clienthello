@@ -9,4 +9,4 @@ fi
 
 dotnet --diagnostics build --configuration Release
 
-./bin/Release/net6.0/dotnet$EXTENSION
+./bin/Release/net10.0/dotnet$EXTENSION

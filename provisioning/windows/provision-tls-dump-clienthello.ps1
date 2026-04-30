@@ -1,11 +1,22 @@
 $serviceName = 'tls-dump-clienthello'
 $serviceUsername = "NT SERVICE\$serviceName"
 $serviceHome = "C:\$serviceName"
-$serviceSourcePath = Resolve-Path 'c:\vagrant\dist\*\*.exe'
+$serviceSourcePath = Resolve-Path -ErrorAction SilentlyContinue 'c:\vagrant\dist\*\*.exe'
+if (!$serviceSourcePath) {
+    # build tls-dump-clienthello.
+    . c:/vagrant/provisioning/windows/bash.ps1
+    if (Get-Service -ErrorAction SilentlyContinue $serviceName) {
+        Stop-Service $serviceName
+    }
+    Push-Location c:/vagrant
+    Bash make
+    Pop-Location
+    $serviceSourcePath = Resolve-Path 'c:\vagrant\dist\*\*.exe'
+}
 $servicePath = "$serviceHome\$(Split-Path -Leaf $serviceSourcePath)"
 
 # uninstall when required.
-if (Get-Service -ErrorAction Silentlycontinue $serviceName) {
+if (Get-Service -ErrorAction SilentlyContinue $serviceName) {
     Stop-Service $serviceName
     nssm remove $serviceName confirm
 }
@@ -17,7 +28,7 @@ if (Test-Path $serviceHome) {
 Write-Host "Creating the $serviceName service..."
 nssm install $serviceName $servicePath
 nssm set $serviceName AppDirectory $serviceHome
-nssm set $serviceName Start SERVICE_DEMAND_START
+nssm set $serviceName Start SERVICE_AUTO_START
 nssm set $serviceName AppRotateFiles 1
 nssm set $serviceName AppRotateOnline 1
 nssm set $serviceName AppRotateSeconds 86400

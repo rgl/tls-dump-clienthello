@@ -99,46 +99,34 @@ EOF
 '@
 
 # install the .net framework development tools.
-# see https://community.chocolatey.org/packages/netfx-4.8-devpack
-choco install -y netfx-4.8-devpack
+# see https://community.chocolatey.org/packages/netfx-4.8.1-devpack
+choco install -y netfx-4.8.1-devpack
 
 # install the .net development tools.
 # see https://community.chocolatey.org/packages/dotnet-sdk
-choco install -y dotnet-sdk --version 6.0.404 # dotnet 6.0.12
+choco install -y dotnet-sdk --version 10.0.203 # dotnet 10.0.7
 
 # install the go development tools.
 # see https://community.chocolatey.org/packages/go
-choco install -y go --version 1.19.4
+choco install -y go --version 1.26.2
 
 # install the java development tools.
-# see https://community.chocolatey.org/packages/temurin11
+# see https://community.chocolatey.org/packages/temurin25
 # see https://community.chocolatey.org/packages/gradle
-choco install -y temurin11 --version 11.0.17.800 # jdk 11.0.17
-choco install -y gradle --version 7.5.1
+choco install -y temurin25 --version 25.0.1.8 # jdk 25.0.1.8
+choco install -y gradle --version 9.4.1
 
 # install the node.js development tools.
 # see https://community.chocolatey.org/packages/nodejs-lts
-choco install -y nodejs-lts --version 18.12.1
+choco install -y nodejs-lts --version 24.15.0
 
 # install the rust development tools.
 # see https://community.chocolatey.org/packages/rust-ms
 choco install -y visualstudio2019-workload-vctools
-choco install -y rust-ms --version 1.66.0
+choco install -y rust-ms --version 1.95.0
 
 # install the erlang development tools.
 # see https://community.chocolatey.org/packages/erlang
 # see https://community.chocolatey.org/packages/rebar3
-# see https://github.com/ElixirWin/ChocolateyPackages/pull/62
-# see https://github.com/rgl/ErlangChocolateyPackages/tree/rgl
-$url = 'https://github.com/rgl/ErlangChocolateyPackages/archive/refs/heads/rgl.zip'
-$path = "$env:TEMP\ErlangChocolateyPackages"
-$zipPath = "$path.zip"
-(New-Object Net.WebClient).DownloadFile($url, $zipPath)
-Expand-Archive -Path $zipPath -DestinationPath $path
-Push-Location "$path\ErlangChocolateyPackages-rgl\Erlang"
-choco pack
-choco install -y erlang --source $PWD --version 25.0
-Set-Location ..\Rebar
-choco pack
-choco install -y rebar3 --source $PWD --version 3.18.0
-Pop-Location
+choco install -y erlang --version 28.5.0
+choco install -y rebar3 --version 3.27.0

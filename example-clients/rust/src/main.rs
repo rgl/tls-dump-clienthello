@@ -4,32 +4,25 @@ fn main() {
 
   let agent = build_agent();
 
-  let body = agent.get("https://example.com:8888")
-    .query("example-client", format!("rust/{}", rust_version).as_str())
+  let body = agent
+    .get("https://example.com:8888")
+    .query("example-client", &format!("rust/{}", rust_version))
     .call().unwrap()
-    .into_string().unwrap();
+    .into_body()
+    .read_to_string().unwrap();
 
   println!("Response Body: {}", body);
 }
 
 fn build_agent() -> ureq::Agent {
-  let mut root_store = rustls::RootCertStore::empty();
-
-  // see https://github.com/rustls/rustls-native-certs
-  for cert in rustls_native_certs::load_native_certs().expect("could not load platform certs") {
-    root_store.add(&rustls::Certificate(cert.0)).unwrap();
-  }
-
-  let tls_config = rustls::ClientConfig::builder()
-    .with_safe_defaults()
-    .with_root_certificates(root_store)
-    .with_no_client_auth();
-
-  let agent = ureq::AgentBuilder::new()
-    .tls_connector(std::sync::Arc::new(std::sync::Arc::new(tls_config)))
-    .build();
-
-  return agent;
+  return ureq::Agent::config_builder()
+    .tls_config(
+      ureq::tls::TlsConfig::builder()
+        .root_certs(ureq::tls::RootCerts::PlatformVerifier)
+        .build(),
+    )
+    .build()
+    .new_agent();
 }
 
 mod built_info {

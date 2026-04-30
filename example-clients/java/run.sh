@@ -4,8 +4,8 @@ set -euxo pipefail
 gradle build --no-daemon --warning-mode all
 
 if [ ! -f jSSLKeyLog.jar ]; then
-    wget -q https://github.com/jsslkeylog/jsslkeylog/releases/download/v1.3.0/jSSLKeyLog-1.3.zip
-    7z x jSSLKeyLog-1.3.zip jSSLKeyLog.jar
+    wget -q https://github.com/jsslkeylog/jsslkeylog/releases/download/v1.4.0/jSSLKeyLog-1.4.zip
+    7z x jSSLKeyLog-1.4.zip jSSLKeyLog.jar
 fi
 
 # NB by adding the jsslkeylog java agent all tls session keys

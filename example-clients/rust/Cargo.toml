@@ -1,13 +1,12 @@
 [package]
 name = "tls-dump-clienthello-rust-example-client"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 build = "build.rs"
 
 [dependencies]
-rustls = "0.20.7"
-rustls-native-certs = "0.6.2"
-ureq = "2.5.0"
+rustls = "0.23.39"
+ureq = { version = "3.3.0", features = ["rustls", "platform-verifier"] }
 
 [build-dependencies]
-built = "0.5.2"
+built = "0.8.0"

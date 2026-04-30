@@ -1,25 +1,30 @@
-// see https://docs.gradle.org/7.5/userguide/java_plugin.html
-// see https://docs.gradle.org/7.5/userguide/application_plugin.html
-// see http://imperceptiblethoughts.com/shadow/
-// see https://github.com/johnrengelman/shadow
+// see https://docs.gradle.org/9.4/userguide/java_plugin.html
+// see https://docs.gradle.org/9.4/userguide/application_plugin.html
+// see https://gradleup.com/shadow/
+// see https://github.com/GradleUp/shadow
 
 plugins {
-    id 'com.github.johnrengelman.shadow' version '7.1.2'
+    id 'application'
+    id 'com.gradleup.shadow' version '9.4.1'
 }
 
-apply plugin: 'application'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
 
-mainClassName = 'net.example.Example'
+application {
+    mainClass = 'net.example.Example'
+}
+
 version = '1.0.0'
-sourceCompatibility = 11
-targetCompatibility = 11
 
 jar {
     manifest {
         attributes(
             'Implementation-Title': 'Java TLS client example',
-            'Implementation-Version': archiveVersion,
-            'Main-Class': mainClassName
+            'Implementation-Version': project.version,
         )
     }
 }
@@ -29,8 +34,8 @@ repositories {
 }
 
 dependencies {
-    // see https://logging.apache.org/log4j/2.x/maven-artifacts.html#Using_Log4j_in_your_Gradle_build
-    // see https://logging.apache.org/log4j/2.x/runtime-dependencies.html
-    implementation 'org.apache.logging.log4j:log4j-api:2.19.0'
-    implementation 'org.apache.logging.log4j:log4j-core:2.19.0'
+    // see https://logging.apache.org/log4j/2.x/manual/installation.html
+    implementation platform('org.apache.logging.log4j:log4j-bom:2.25.4')
+    implementation 'org.apache.logging.log4j:log4j-api:${log4j-api.version}'
+    runtimeOnly 'org.apache.logging.log4j:log4j-core'
 }

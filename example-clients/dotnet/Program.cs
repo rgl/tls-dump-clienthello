@@ -10,7 +10,7 @@ using (var client = new HttpClient(handler))
 {
     var data = new Dictionary<string, string>
     {
-        {"example-client", "dotnet/"+System.Environment.Version},
+        {"example-client", $"dotnet/{System.Environment.Version}"},
     };
 
     var qs = await new FormUrlEncodedContent(data).ReadAsStringAsync();
