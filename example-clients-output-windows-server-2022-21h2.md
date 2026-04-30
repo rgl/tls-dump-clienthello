@@ -1,5 +1,7 @@
 # Example Windows Server 2022 (21H2) outputs
 
+**NB** Also see the [Windows Schannel Provider Supported Cipher Suites](https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-server-2022).
+
 * [.NET 10.0.7](#net-1007)
 * [.NET Framework 4.8.4795.0](#net-framework-4847950)
 * [Chrome 147.0.7727.117](#chrome-14707727117)

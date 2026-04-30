@@ -1,5 +1,7 @@
 # Example Windows Server 2025 (24H2) outputs
 
+**NB** Also see the [Windows Schannel Provider Supported Cipher Suites](https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-server-2025).
+
 * [.NET 10.0.7](#net-1007)
 * [.NET Framework 4.8.9325.0](#net-framework-4893250)
 * [Chrome 147.0.7727.117](#chrome-14707727117)

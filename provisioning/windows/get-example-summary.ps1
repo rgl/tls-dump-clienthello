@@ -11,12 +11,12 @@ function Get-WindowsVersion {
     $build = [int]$currentVersionKey.CurrentBuildNumber
     $builds = @{
         server = @{
-            20348 = @{Name='Windows Server 2022';   Version='21H2'; ReleaseDate='August 18, 2021'}
-            26100 = @{Name='Windows Server 2025';   Version='24H2'; ReleaseDate='November 1, 2024'}
+            20348 = @{Name='Windows Server 2022';   Version='21H2'; ReleaseDate='August 18, 2021';      SchannelCipherSuitesUrl='https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-server-2022'}
+            26100 = @{Name='Windows Server 2025';   Version='24H2'; ReleaseDate='November 1, 2024';     SchannelCipherSuitesUrl='https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-server-2025'}
         }
         client = @{
-            22621 = @{Name='Windows 11';            Version='22H2'; ReleaseDate='September 20, 2022'}
-            26100 = @{Name='Windows 11';            Version='24H2'; ReleaseDate='October 1, 2024'}
+            22621 = @{Name='Windows 11';            Version='22H2'; ReleaseDate='September 20, 2022';   SchannelCipherSuitesUrl='https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-11-v22h2'}
+            26100 = @{Name='Windows 11';            Version='24H2'; ReleaseDate='October 1, 2024';      SchannelCipherSuitesUrl='https://learn.microsoft.com/en-us/windows/win32/secauthn/tls-cipher-suites-in-windows-11-v22h2'}
         }
     }
     [PSCustomObject]$builds[$edition][$build]
@@ -81,6 +81,8 @@ function Get-Summary($windowsVersion) {
 
     @"
 # Example $($windowsVersion.Name) ($($windowsVersion.Version)) outputs
+
+**NB** Also see the [Windows Schannel Provider Supported Cipher Suites]($($windowsVersion.SchannelCipherSuitesUrl)).
 
 "@
     $summaries | ForEach-Object {
