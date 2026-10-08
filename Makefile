@@ -11,7 +11,7 @@ EXTRA_SOURCE_FILES := \
 
 # see https://github.com/goreleaser/goreleaser
 # renovate: datasource=github-releases depName=goreleaser/goreleaser extractVersion=^v?(?<version>2\..+)
-GORELEASER_VERSION := 2.15.4
+GORELEASER_VERSION := 2.18.2
 
 all: build
 
@@ -19,7 +19,7 @@ $(GORELEASER):
 	go install github.com/goreleaser/goreleaser/v2@v$(GORELEASER_VERSION)
 
 $(CYCLONEDXGOMOD):
-	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.10.0
+	go install github.com/CycloneDX/cyclonedx-gomod/cmd/cyclonedx-gomod@v1.12.0
 
 build: $(GORELEASER) $(EXTRA_SOURCE_FILES)
 	$(GORELEASER) build --skip=validate --clean

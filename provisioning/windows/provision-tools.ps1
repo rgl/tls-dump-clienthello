@@ -40,7 +40,7 @@ git config --global mergetool.meld.cmd '\"C:/Program Files (x86)/Meld/Meld.exe\"
 #git config --list --show-origin
 
 # install msys2.
-choco install -y msys2
+choco install -y msys2 --params "'/NoPath'"
 
 # configure the msys2 launcher to let the shell inherith the PATH.
 $msys2BasePath = 'C:\tools\msys64'
@@ -109,29 +109,29 @@ choco install -y netfx-4.8.1-devpack
 
 # install the .net development tools.
 # see https://community.chocolatey.org/packages/dotnet-sdk
-choco install -y dotnet-sdk --version 10.0.203 # dotnet 10.0.7
+choco install -y dotnet-sdk --version 10.0.401 # dotnet 10.0.12
 
 # install the go development tools.
 # see https://community.chocolatey.org/packages/go
-choco install -y go --version 1.26.2
+choco install -y go --version 1.27.1
 
 # install the java development tools.
 # see https://community.chocolatey.org/packages/temurin25
 # see https://community.chocolatey.org/packages/gradle
 choco install -y temurin25 --version 25.0.1.8 # jdk 25.0.1.8
-choco install -y gradle --version 9.4.1
+choco install -y gradle --version 9.8.0
 
 # install the node.js development tools.
 # see https://community.chocolatey.org/packages/nodejs-lts
-choco install -y nodejs-lts --version 24.15.0
+choco install -y nodejs-lts --version 24.21.0
 
 # install the rust development tools.
 # see https://community.chocolatey.org/packages/rust-ms
 choco install -y visualstudio2019-workload-vctools
-choco install -y rust-ms --version 1.95.0
+choco install -y rust-ms --version 1.98.1
 
 # install the erlang development tools.
 # see https://community.chocolatey.org/packages/erlang
 # see https://community.chocolatey.org/packages/rebar3
-choco install -y erlang --version 28.5.0
-choco install -y rebar3 --version 3.27.0
+choco install -y erlang --version 29.1.1
+choco install -y rebar3 --version 3.27.1

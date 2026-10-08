@@ -34,9 +34,9 @@ Set-ItemProperty -Path HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\A
 # see https://www.chromium.org/administrators/configuring-other-preferences
 choco install -y --ignore-checksums googlechrome
 $chromeLocation = 'C:\Program Files\Google\Chrome\Application'
-cp -Force GoogleChrome-external_extensions.json (Resolve-Path "$chromeLocation\*\default_apps\external_extensions.json")
-cp -Force GoogleChrome-master_preferences.json "$chromeLocation\master_preferences"
-cp -Force GoogleChrome-master_bookmarks.html "$chromeLocation\master_bookmarks.html"
+cp -Force GoogleChrome-external_extensions.json (Resolve-Path "$chromeLocation\*\Extensions\external_extensions.json")
+cp -Force GoogleChrome-initial_preferences.json "$chromeLocation\initial_preferences"
+cp -Force GoogleChrome-initial_bookmarks.html "$chromeLocation\initial_bookmarks.html"
 
 # install Firefox.
 choco install -y firefox

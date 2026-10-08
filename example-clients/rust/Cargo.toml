@@ -5,8 +5,8 @@ edition = "2024"
 build = "build.rs"
 
 [dependencies]
-rustls = "0.23.39"
-ureq = { version = "3.3.0", features = ["rustls", "platform-verifier"] }
+rustls = "0.23.45"
+ureq = { version = "3.4.2", features = ["rustls", "platform-verifier"] }
 
 [build-dependencies]
-built = "0.8.0"
+built = "0.8.1"

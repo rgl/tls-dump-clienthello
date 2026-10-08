@@ -6,7 +6,7 @@ this dumps the [TLS ClientHello message](https://tools.ietf.org/html/rfc5246#sec
 
 ## Usage
 
-Install [Go 1.26.2](https://go.dev/dl/).
+Install [Go 1.27.1](https://go.dev/dl/).
 
 Add `example.com` to your `hosts` file:
 

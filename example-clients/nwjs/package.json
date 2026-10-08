@@ -2,8 +2,8 @@
     "name": "tls-dump-clienthello-nwjs-example-client",
     "main": "main.js",
     "devDependencies": {
-        "@types/node": "^25.6.0",
-        "nw": "^0.110.1",
+        "@types/node": "^25.9.9",
+        "nw": "^0.117.0",
         "nwjs-types": "^1.0.0"
     }
 }

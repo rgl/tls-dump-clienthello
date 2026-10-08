@@ -28,8 +28,8 @@ Value,Description,DTLS-OK,Recommended,Reference,Comment
 26,brainpoolP256r1,Y,N,[RFC7027],
 27,brainpoolP384r1,Y,N,[RFC7027],
 28,brainpoolP512r1,Y,N,[RFC7027],
-29,x25519,Y,Y,[RFC-ietf-tls-rfc8446bis-13][RFC8422],
-30,x448,Y,Y,[RFC-ietf-tls-rfc8446bis-13][RFC8422],
+29,x25519,Y,Y,[RFC9846][RFC8422],
+30,x448,Y,Y,[RFC9846][RFC8422],
 31,brainpoolP256r1tls13,Y,N,[RFC8734],
 32,brainpoolP384r1tls13,Y,N,[RFC8734],
 33,brainpoolP512r1tls13,Y,N,[RFC8734],
@@ -49,15 +49,17 @@ Value,Description,DTLS-OK,Recommended,Reference,Comment
 260,ffdhe8192,Y,N,[RFC7919],
 261-507,Unassigned,,,,
 508-511,Reserved for Private Use,,,[RFC7919],
-512,MLKEM512,Y,N,[draft-connolly-tls-mlkem-key-agreement-05],FIPS 203 version of ML-KEM-512
-513,MLKEM768,Y,N,[draft-connolly-tls-mlkem-key-agreement-05],FIPS 203 version of ML-KEM-768
-514,MLKEM1024,Y,N,[draft-connolly-tls-mlkem-key-agreement-05],FIPS 203 version of ML-KEM-1024
+512,MLKEM512,Y,N,[RFC-ietf-tls-mlkem-10],FIPS 203 version of ML-KEM-512
+513,MLKEM768,Y,N,[RFC-ietf-tls-mlkem-10],FIPS 203 version of ML-KEM-768
+514,MLKEM1024,Y,N,[RFC-ietf-tls-mlkem-10],FIPS 203 version of ML-KEM-1024
 515-2569,Unassigned,,,,
 2570,Reserved,Y,N,[RFC8701],
-2571-4586,Unassigned,,,,
-4587,SecP256r1MLKEM768,Y,N,[RFC-ietf-tls-ecdhe-mlkem-04],Combining secp256r1 ECDH with ML-KEM-768
-4588,X25519MLKEM768,Y,N,[RFC-ietf-tls-ecdhe-mlkem-04],Combining X25519 ECDH with ML-KEM-768
-4589,SecP384r1MLKEM1024,Y,N,[RFC-ietf-tls-ecdhe-mlkem-04],Combining secp384r1 ECDH with ML-KEM-1024
+2571-4584,Unassigned,,,,
+4585,SecP256r1MLKEM512,Y,N,[draft-rosomakho-tls-ecdhe-mlkem512-00],Combining secp256r1 ECDH with ML-KEM-512
+4586,MLKEM512X25519,Y,N,[draft-rosomakho-tls-ecdhe-mlkem512-00],Combining ML-KEM-512 with X25519 ECDH
+4587,SecP256r1MLKEM768,Y,N,[RFC10024],Combining secp256r1 ECDH with ML-KEM-768
+4588,X25519MLKEM768,Y,Y,[RFC10024],Combining X25519 ECDH with ML-KEM-768
+4589,SecP384r1MLKEM1024,Y,N,[RFC10024],Combining secp384r1 ECDH with ML-KEM-1024
 4590,curveSM2MLKEM768,N,N,[draft-yang-tls-hybrid-sm2-mlkem-03],Combining SM2 ECDH with ML-KEM-768
 4591-6681,Unassigned,,,,
 6682,Reserved,Y,N,[RFC8701],
@@ -70,8 +72,8 @@ Value,Description,DTLS-OK,Recommended,Reference,Comment
 19019-23129,Unassigned,,,,
 23130,Reserved,Y,N,[RFC8701],
 23131-25496,Unassigned,,,,
-25497,X25519Kyber768Draft00 (OBSOLETE),Y,D,[draft-tls-westerbaan-xyber768d00-02][RFC-ietf-tls-ecdhe-mlkem-04],Pre-standards version of Kyber768. Obsoleted by [RFC-ietf-tls-ecdhe-mlkem-04].
-25498,SecP256r1Kyber768Draft00 (OBSOLETE),Y,D,[draft-kwiatkowski-tls-ecdhe-kyber-01][RFC-ietf-tls-ecdhe-mlkem-04],Pre-standards version of Kyber768. Obsoleted by [RFC-ietf-tls-ecdhe-mlkem-04].
+25497,X25519Kyber768Draft00 (OBSOLETE),Y,D,[draft-tls-westerbaan-xyber768d00-02][RFC10024],Pre-standards version of Kyber768. Obsoleted by [RFC10024].
+25498,SecP256r1Kyber768Draft00 (OBSOLETE),Y,D,[draft-kwiatkowski-tls-ecdhe-kyber-01][RFC10024],Pre-standards version of Kyber768. Obsoleted by [RFC10024].
 25499-27241,Unassigned,,,,
 27242,Reserved,Y,N,[RFC8701],
 27243-31353,Unassigned,,,,
